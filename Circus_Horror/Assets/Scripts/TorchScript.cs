@@ -39,6 +39,7 @@ public class TorchScript : MonoBehaviour
 
 		if(other.tag == "FireTrigger")
 		{
+			Debug.Log("near fire");
 			nearLightSource = true;
 		}
 	}
@@ -47,6 +48,7 @@ public class TorchScript : MonoBehaviour
 	{
 		if(other.tag == "FireTrigger")
 		{
+			Debug.Log("not near fire");
 			nearLightSource = false;
 		}
 	}
