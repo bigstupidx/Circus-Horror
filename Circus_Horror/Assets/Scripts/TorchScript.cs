@@ -8,6 +8,7 @@ public class TorchScript : MonoBehaviour
 
 	bool torchOn = true;
 	bool nearLightSource = false;
+	bool blowOutAnim = false;
 	// Use this for initialization
 	void Start () 
 	{
@@ -19,19 +20,36 @@ public class TorchScript : MonoBehaviour
 	{
 		if(Input.GetKey(KeyCode.Q))
 		{
-			if(torchOn && !nearLightSource)
+			if(torchOn && !nearLightSource && !blowOutAnim)
 			{
 				torchOn = false;
-				torchLight.enabled = false;
-				torchParticles.enableEmission = false;
-			}
-			else if(!torchOn && nearLightSource)
-			{
-				torchOn = true;
-				torchLight.enabled = true;
-				torchParticles.enableEmission = true;
+				blowOutAnim = true;
+				iTween.RotateBy(gameObject, iTween.Hash("y", -0.055, "x", 0.06, "time", 0.5, "easetype", "easeOutQuad", "oncomplete", "blowCandleOut"));
 			}
 		}
+
+		if(!torchOn && nearLightSource && !blowOutAnim)
+		{
+			torchOn = true;
+			torchLight.enabled = true;
+			torchParticles.enableEmission = true;
+		}
+	}
+
+	void blowCandleOut ()
+	{
+		torchLight.enabled = false;
+		torchParticles.enableEmission = false;
+		torchParticles.simulationSpace = ParticleSystemSimulationSpace.World;
+		iTween.RotateBy(gameObject, iTween.Hash("y", 0.055, "x", -0.06, "time", 0.5, "delay", 0.4, "easetype", "easeOutQuad", "oncomplete", "animStopped"));
+
+	}
+
+	void animStopped ()
+	{
+		blowOutAnim = false;
+		torchParticles.simulationSpace = ParticleSystemSimulationSpace.Local;
+
 	}
 
 	void OnTriggerEnter (Collider other)
