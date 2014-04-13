@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{5DAA5D30-4F8B-7403-1560-EE046C5892D3}</ProjectGuid>
+	<ProjectGuid>{3666CA9D-933F-3E2E-92D4-AB9E9A842F99}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Options.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\TorchScript.cs" />
+     <Compile Include="Assets\Scripts\iTween\iTween.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\ComponentSystem\vp_Component.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\ComponentSystem\vp_ComponentPreset.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\ComponentSystem\vp_State.cs" />
@@ -299,7 +300,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{E9DF45D5-AFFE-2750-64FB-094E7672F9E9}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+      <Project>{9FCE3BCD-5459-28D5-DB2E-03C7A24C3725}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
