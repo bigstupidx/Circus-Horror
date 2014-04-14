@@ -52,6 +52,7 @@
      <Compile Include="Assets\6by7\ProGrids\Classes\pg_Util.cs" />
      <Compile Include="Assets\BIG_Environment_Pack\Atmo_System\AtmoXfade.cs" />
      <Compile Include="Assets\BIG_Environment_Pack\FX\Fire\Fire\FlickerLight.cs" />
+     <Compile Include="Assets\Scripts\Follow.cs" />
      <Compile Include="Assets\Scripts\GameUI.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Options.cs" />
