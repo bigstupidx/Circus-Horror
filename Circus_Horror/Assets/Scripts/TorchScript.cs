@@ -5,6 +5,8 @@ public class TorchScript : MonoBehaviour
 {
 	public ParticleSystem torchParticles;
 	public Light torchLight;
+	public GameObject torch;
+	public int torchTime = 60;
 
 	bool torchOn = true;
 	bool nearLightSource = false;
@@ -15,6 +17,7 @@ public class TorchScript : MonoBehaviour
 	void Start () 
 	{
 		followScript = GameObject.Find("SlenderMan").GetComponent<Follow>();
+		iTween.ScaleTo(torch, iTween.Hash("y", 0.4, "time", torchTime, "easetype", "linear"));
 	}
 	
 	// Update is called once per frame
@@ -24,6 +27,7 @@ public class TorchScript : MonoBehaviour
 		{
 			if(torchOn && !nearLightSource && !blowOutAnim)
 			{
+				iTween.Pause(torch);
 				followScript.canChase = false;
 				torchOn = false;
 				blowOutAnim = true;
@@ -33,6 +37,7 @@ public class TorchScript : MonoBehaviour
 
 		if(!torchOn && nearLightSource && !blowOutAnim)
 		{
+			iTween.Resume(torch);
 			followScript.canChase = true;
 			torchOn = true;
 			torchLight.enabled = true;
