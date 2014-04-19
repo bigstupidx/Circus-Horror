@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_4;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_4;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -39,14 +39,22 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Standard Assets\Water (Pro Only)\Sources\Scripts\Water.cs" />
+     <Compile Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\Displace.cs" />
+     <Compile Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\GerstnerDisplace.cs" />
+     <Compile Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\MeshContainer.cs" />
+     <Compile Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\PlanarReflection.cs" />
+     <Compile Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\SpecularLighting.cs" />
+     <Compile Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\WaterBase.cs" />
+     <Compile Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\WaterTile.cs" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Shooter\ShooterPistolSlideFast.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Camera\CameraClimb.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Shooter\ShooterMachinegunZoom.txt" />
@@ -113,7 +121,9 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MaceWeaponPullUp.txt" />
      <None Include="Assets\UFPS\Base\Content\Art\Weapons\Source\BasicArms\BasicArmsReadMe.txt" />
      <None Include="Assets\Textures\Textures.txt" />
+     <None Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Shaders\FX-SimpleWater4.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\DrunkWeapon.txt" />
+     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MaceWeaponPullRight.txt" />
      <None Include="Assets\6by7\ProBuilder\VersionInfo.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponPistolSlideFast.txt" />
@@ -165,6 +175,7 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\SystemOFFWeaponGlideIn.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\SniperWeapon.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\SystemOFFCamera.txt" />
+     <None Include="Assets\Standard Assets\Water (Pro Only)\Sources\Shaders\FX-Water.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\PerspOldCamera.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponGenericSlide.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MafiaWeapon.txt" />
@@ -179,6 +190,7 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MafiaShooterZoom.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\PerspModernWeapon.txt" />
      <None Include="Assets\BIG_Environment_Pack\Readme.txt" />
+     <None Include="Assets\Storm Effects\README.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponPistolRun.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\PerspModernCamera.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ModernControllerZoom.txt" />
@@ -189,7 +201,9 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Camera\CameraSlide.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MechCamera.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\CowboyShooterZoom.txt" />
+     <None Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Shaders\WaterInclude.cginc" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\OldSchoolController.txt" />
+     <None Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Shaders\FX-Water4.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Shooter\ShooterMachinegunSlideFast.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\SniperCamera.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MouseRawUnityWeapon.txt" />
@@ -208,10 +222,10 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MeleeAttackToDownRight.txt" />
      <None Include="Assets\6by7\ProBuilder\Credits.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Controller\ControllerDefault.txt" />
- <Reference Include="Assets\6by7\ProBuilder\Classes\ProBuilderCore">
+ <Reference Include="ProBuilderCore">
  <HintPath>Assets\6by7\ProBuilder\Classes\ProBuilderCore.dll</HintPath>
  </Reference>
- <Reference Include="Assets\6by7\Shared\Code\SixBySeven">
+ <Reference Include="SixBySeven">
  <HintPath>Assets\6by7\Shared\Code\SixBySeven.dll</HintPath>
  </Reference>
   </ItemGroup>
