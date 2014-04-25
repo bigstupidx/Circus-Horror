@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f5d15d500429fab4f972d2f6dc9d87e7
+guid: 4fee98b2dfa8d41248177a66c0d0c513
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -7,7 +7,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Wagon 021
+    4300000: pCube1
     9500000: //RootNode
   materials:
     importMaterials: 1

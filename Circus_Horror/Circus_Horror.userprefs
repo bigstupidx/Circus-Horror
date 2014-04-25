@@ -1,17 +1,29 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TorchScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Follow.cs">
     <Files>
-      <File FileName="../../Desktop/AIPathfindingTest/Assets/Menu.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/TorchScript.cs" Line="9" Column="27" />
+      <File FileName="Assets/Scripts/Player.cs" Line="24" Column="72" />
+      <File FileName="Assets/Scripts/TorchScript.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Follow.cs" Line="1" Column="1" />
+      <File FileName="Assets/UFPS/Base/Scripts/Core/Utility/vp_Input.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Scripts" expanded="True">
-              <Node name="TorchScript.cs" selected="True" />
+              <Node name="Follow.cs" selected="True" />
+            </Node>
+            <Node name="UFPS" expanded="True">
+              <Node name="Base" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="Gameplay" expanded="True">
+                    <Node name="World" expanded="True">
+                      <Node name="Interaction" expanded="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
             </Node>
           </Node>
         </State>
