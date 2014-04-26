@@ -56,6 +56,13 @@ public class vp_FPController : vp_Component
 	protected float m_CurrentAntiBumpOffset = 0.0f;
 	protected Vector2 m_MoveVector = Vector2.zero;
 
+	// Run
+	protected float MotormaxRunTime = 10.0f;
+	protected bool canRun = true;
+	protected bool wasRunning = false;
+	protected float runningTime = 0;
+	protected float runningCoolDownTime;
+
 	// jump
 	public float MotorJumpForce = 0.18f;
 	public float MotorJumpForceDamping = 0.08f;
@@ -1107,10 +1114,15 @@ public class vp_FPController : vp_Component
 	/// </summary>
 	protected virtual bool CanStart_Run()
 	{
-
+		
 		// can't start running while crouching
 		if (Player.Crouch.Active)
 			return false;
+
+		if(!canRun || Input.GetKeyDown(KeyCode.X))
+		{
+			return false;
+		}
 
 		return true;
 

@@ -97,7 +97,6 @@ public class vp_FPInteractManager : MonoBehaviour
 	
 		// check for an interactable
 		InteractCrosshair();
-		
 	}
 	
 

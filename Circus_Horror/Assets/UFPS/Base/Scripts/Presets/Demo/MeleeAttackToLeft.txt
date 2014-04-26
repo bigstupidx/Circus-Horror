@@ -7,7 +7,7 @@ WeaponStatePull PullRight
 WeaponStateSwing SwingLeft
 SwingDelay 0.4
 SwingDuration 0.1
-SwingRate 0.8
+SwingRate 0.3
 SwingSoftForceFrames 50
 SwingPositionSoftForce -0.6 0.0 0.3
 SwingRotationSoftForce 0 -50 0
