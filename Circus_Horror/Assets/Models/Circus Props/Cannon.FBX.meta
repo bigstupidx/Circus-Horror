@@ -1,0 +1,121 @@
+fileFormatVersion: 2
+guid: 0022da070695b9947b4447f4cbe58de2
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Cannon
+    100004: Cannon Cart
+    100006: Cannon Cart Beam
+    100008: Cannon Cart Beam001
+    100010: Cannon Cart Upright
+    100012: Cannon Cart Upright001
+    100014: Cannon Wheel
+    100016: Cannon Wheel001
+    100018: Cylinder001
+    100020: Object001
+    100022: Object002
+    100024: Sphere001
+    400000: //RootNode
+    400002: Cannon
+    400004: Cannon Cart
+    400006: Cannon Cart Beam
+    400008: Cannon Cart Beam001
+    400010: Cannon Cart Upright
+    400012: Cannon Cart Upright001
+    400014: Cannon Wheel
+    400016: Cannon Wheel001
+    400018: Cylinder001
+    400020: Object001
+    400022: Object002
+    400024: Sphere001
+    2300000: Cannon
+    2300002: Cannon Cart
+    2300004: Cannon Cart Beam
+    2300006: Cannon Cart Beam001
+    2300008: Cannon Cart Upright
+    2300010: Cannon Cart Upright001
+    2300012: Cannon Wheel
+    2300014: Cannon Wheel001
+    2300016: Cylinder001
+    2300018: Object001
+    2300020: Object002
+    2300022: Sphere001
+    3300000: Cannon
+    3300002: Cannon Cart
+    3300004: Cannon Cart Beam
+    3300006: Cannon Cart Beam001
+    3300008: Cannon Cart Upright
+    3300010: Cannon Cart Upright001
+    3300012: Cannon Wheel
+    3300014: Cannon Wheel001
+    3300016: Cylinder001
+    3300018: Object001
+    3300020: Object002
+    3300022: Sphere001
+    4300000: Cannon Cart
+    4300002: Cannon Cart Beam
+    4300004: Cannon Cart Beam001
+    4300006: Cannon
+    4300008: Cannon Cart Upright
+    4300010: Cannon Cart Upright001
+    4300012: Cannon Wheel
+    4300014: Object001
+    4300016: Object002
+    4300018: Cannon Wheel001
+    4300020: Sphere001
+    4300022: Cylinder001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .0700000003
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
