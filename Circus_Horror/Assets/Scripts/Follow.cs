@@ -19,6 +19,8 @@ public class Follow : MonoBehaviour
 	bool billyHasPlayed = false;
 	float distance;
 
+	Animator anim;
+
 
 	float timer = 0;
 	float startTimer = 0;
@@ -27,7 +29,8 @@ public class Follow : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-
+		anim = GetComponent<Animator>();
+		anim.SetBool("ChasingPlayer", false);
 	}
 	
 	// Update is called once per frame
@@ -35,6 +38,7 @@ public class Follow : MonoBehaviour
 	{
 		if(chasingStarted && canChase)
 		{
+			anim.SetBool("ChasingPlayer", true);
 			distance = Vector3.Distance(transform.position, target.position);
 			if(!soundIsPlaying)
 			{
@@ -70,6 +74,7 @@ public class Follow : MonoBehaviour
 		}
 		else
 		{
+			anim.SetBool("ChasingPlayer", false);
 			GetComponent<NavMeshAgent>().destination = transform.position;
 			if(startTimer < timeUntilStartChase)
 			{

@@ -12,6 +12,8 @@ public class TorchScript : MonoBehaviour
 	bool nearLightSource = false;
 	bool blowOutAnim = false;
 
+
+
 	Follow followScript;
 	// Use this for initialization
 	void Start () 

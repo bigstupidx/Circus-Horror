@@ -83,6 +83,7 @@
      <Compile Include="Assets\Editor\Water (Pro Only)\Water4\SpecularLightingEditor.cs" />
      <Compile Include="Assets\Editor\Water (Pro Only)\Water4\WaterBaseEditor.cs" />
      <Compile Include="Assets\Editor\Water (Pro Only)\Water4\WaterEditorUtility.cs" />
+     <Compile Include="Assets\MecanimAnimationStore\Editor\MixamoStoreWindow.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\Editor\Menu\vp_AboutBox.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\Editor\Menu\vp_AddonBrowser.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\Editor\Menu\vp_UFPSMenu.cs" />
@@ -295,6 +296,12 @@
  </Reference>
  <Reference Include="\Applications\Unity\Unity.app\Contents\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions">
  <HintPath>\Applications\Unity\Unity.app\Contents\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="Assets\MecanimAnimationStore\Editor\Mixamo.UnityStore.Unity4">
+ <HintPath>Assets\MecanimAnimationStore\Editor\Mixamo.UnityStore.Unity4.dll</HintPath>
+ </Reference>
+ <Reference Include="Assets\MecanimAnimationStore\Editor\Mixamo.UnityStore">
+ <HintPath>Assets\MecanimAnimationStore\Editor\Mixamo.UnityStore.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

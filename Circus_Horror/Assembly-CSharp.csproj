@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\DoorScript.cs" />
      <Compile Include="Assets\Scripts\Follow.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\StaminaRun.cs" />
      <Compile Include="Assets\Scripts\TorchScript.cs" />
      <Compile Include="Assets\Scripts\iTween\iTween.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\ComponentSystem\vp_Component.cs" />

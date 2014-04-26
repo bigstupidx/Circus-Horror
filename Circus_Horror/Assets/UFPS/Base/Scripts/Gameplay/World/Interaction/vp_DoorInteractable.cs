@@ -23,13 +23,20 @@ public class vp_DoorInteractable : vp_Interactable
 	public AudioSource AudioSource = null;
 	public Vector2 SwitchPitchRange = new Vector2(1.0f, 1.5f);
 	public List<AudioClip> SwitchSounds = new List<AudioClip>();		// list of sounds to randomly play when switched
-	
-	bool doorOpen = false;
-	bool doorIsOpening = false;
+
+	public GameObject otherDoor;
+	public bool leftDoor = false;
+	[System.NonSerialized]
+	public bool doorOpen = false;
+	[System.NonSerialized]
+	public bool doorIsOpening = false;
+	vp_DoorInteractable otherDoorScript;
 
 	protected override void Start()
 	{
-		
+		otherDoorScript = otherDoor.GetComponent<vp_DoorInteractable>();
+		otherDoorScript.doorOpen = doorOpen;
+		otherDoorScript.doorIsOpening = doorIsOpening;
 		base.Start();
 		
 		if(AudioSource == null)
@@ -120,11 +127,31 @@ public class vp_DoorInteractable : vp_Interactable
 			doorIsOpening = true;
 			if(doorOpen)
 			{
-				iTween.RotateBy(gameObject, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
+				if(leftDoor)
+				{
+					iTween.RotateBy(gameObject, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
+					iTween.RotateBy(otherDoor, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear"));
+				}
+				else
+				{
+					iTween.RotateBy(gameObject, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
+					iTween.RotateBy(otherDoor, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear"));
+				}
+
 			}
 			else
 			{
-				iTween.RotateBy(gameObject, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
+
+				if(leftDoor)
+				{
+					iTween.RotateBy(gameObject, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
+					iTween.RotateBy(otherDoor, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear"));
+				}
+				else
+				{
+					iTween.RotateBy(gameObject, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
+					iTween.RotateBy(otherDoor, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear"));
+				}
 			}
 		}
 	}
