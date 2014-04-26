@@ -129,11 +129,13 @@ public class vp_DoorInteractable : vp_Interactable
 			{
 				if(leftDoor)
 				{
+					Debug.Log("Open door left Door");
 					iTween.RotateBy(gameObject, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
 					iTween.RotateBy(otherDoor, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear"));
 				}
 				else
 				{
+					Debug.Log("Open door right Door");
 					iTween.RotateBy(gameObject, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
 					iTween.RotateBy(otherDoor, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear"));
 				}
@@ -144,11 +146,13 @@ public class vp_DoorInteractable : vp_Interactable
 
 				if(leftDoor)
 				{
+					Debug.Log("Closed door left Door");
 					iTween.RotateBy(gameObject, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
 					iTween.RotateBy(otherDoor, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear"));
 				}
 				else
 				{
+					Debug.Log("Closed door right Door");
 					iTween.RotateBy(gameObject, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
 					iTween.RotateBy(otherDoor, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear"));
 				}

@@ -6,7 +6,7 @@ public class TorchScript : MonoBehaviour
 	public ParticleSystem torchParticles;
 	public Light torchLight;
 	public GameObject torch;
-	public int torchTime = 60;
+	public int torchTime = 300;
 
 	bool torchOn = true;
 	bool nearLightSource = false;
