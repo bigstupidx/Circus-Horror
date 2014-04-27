@@ -6,6 +6,10 @@ public class Follow : MonoBehaviour
 	public AudioClip[] sounds;
 	public Transform target;
 
+	public Transform firstSpawn;
+
+	public Light slenderLight;
+
 	[System.NonSerialized]
 	public bool soundIsPlaying = false;
 
@@ -15,6 +19,8 @@ public class Follow : MonoBehaviour
 	public int soundDistance = 10;
 	public int distanceForSoundReset = 20;
 	public int timeUntilStartChase = 30;
+
+	ManagerScript managerScript;
 
 	bool billyHasPlayed = false;
 	float distance;
@@ -31,6 +37,8 @@ public class Follow : MonoBehaviour
 	{
 		anim = GetComponent<Animator>();
 		anim.SetBool("ChasingPlayer", false);
+		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
+		slenderLight.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -76,13 +84,19 @@ public class Follow : MonoBehaviour
 		{
 			anim.SetBool("ChasingPlayer", false);
 			GetComponent<NavMeshAgent>().destination = transform.position;
-			if(startTimer < timeUntilStartChase)
+			if(managerScript.slenderActive && !chasingStarted)
 			{
-				startTimer += Time.deltaTime;
-			}
-			else
-			{
-				chasingStarted = true;
+				transform.position = firstSpawn.position;
+				slenderLight.enabled = true;
+				if(startTimer < timeUntilStartChase)
+				{
+					startTimer += Time.deltaTime;
+				}
+				else
+				{
+					slenderLight.enabled = false;
+					chasingStarted = true;
+				}
 			}
 		}
 	}

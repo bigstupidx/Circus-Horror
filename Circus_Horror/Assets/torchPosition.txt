@@ -7,7 +7,7 @@ RenderingZoomDamping 0.5
 RenderingFieldOfView 35
 RenderingClippingPlanes 0.01 10
 RenderingZScale 1
-PositionOffset 0.28 -0.31 0.23
+PositionOffset 0.31 -0.37 0.72
 PositionSpringStiffness 0.01
 PositionSpringDamping 0.25
 PositionFallRetract 1
@@ -22,7 +22,7 @@ PositionPivot 0 0 0
 RotationPivot 0 0 0
 PositionInputVelocityScale 1
 PositionMaxInputVelocity 25
-RotationOffset 0 0 0
+RotationOffset -11.81 0 0
 RotationSpringStiffness 0.01
 RotationSpringDamping 0.25
 RotationPivotSpringStiffness 0.01

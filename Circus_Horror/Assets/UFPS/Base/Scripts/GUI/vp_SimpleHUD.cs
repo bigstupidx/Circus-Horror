@@ -86,13 +86,13 @@ public class vp_SimpleHUD : MonoBehaviour
 			return;
 
 		// display a simple 'Health' HUD
-		GUI.Box(new Rect(10, Screen.height - 30, 100, 22), "Health: " + (int)(m_Player.Health.Get() * 100.0f) + "%");
+		//GUI.Box(new Rect(10, Screen.height - 30, 100, 22), "Health: " + (int)(m_Player.Health.Get() * 100.0f) + "%");
 
 		// display a simple 'Clips' HUD
-		GUI.Box(new Rect(Screen.width - 220, Screen.height - 30, 100, 22), "Clips: " + m_Player.GetItemCount.Send("AmmoClip"));
+		//GUI.Box(new Rect(Screen.width - 220, Screen.height - 30, 100, 22), "Clips: " + m_Player.GetItemCount.Send("AmmoClip"));
 
 		// display a simple 'Ammo' HUD
-		GUI.Box(new Rect(Screen.width - 110, Screen.height - 30, 100, 22), "Ammo: " + m_Player.CurrentWeaponAmmoCount.Get());
+		//GUI.Box(new Rect(Screen.width - 110, Screen.height - 30, 100, 22), "Ammo: " + m_Player.CurrentWeaponAmmoCount.Get());
 
 		// show a message in the middle of the screen and fade it out
 		if (!string.IsNullOrEmpty(m_PickupMessage) && m_MessageColor.a > 0.01f)
