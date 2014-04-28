@@ -323,7 +323,7 @@ public class vp_Grab : vp_Interactable
 	/// </summary>
 	protected virtual void StartGrab()
 	{
-
+		m_Transform.rigidbody.isKinematic = false;
 		// play a grab sound
 		vp_Utility.PlayRandomSound(m_Audio, GrabSounds, SoundsPitch);
 

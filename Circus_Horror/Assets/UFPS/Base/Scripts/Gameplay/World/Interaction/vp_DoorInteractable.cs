@@ -38,12 +38,14 @@ public class vp_DoorInteractable : vp_Interactable
 
 	ManagerScript managerScript;
 	vp_DoorInteractable doorScript;
+	Player playerScript;
 
 	protected override void Start()
 	{
 		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
 		doorScript = GameObject.Find("FirstDoorTrigger").GetComponent<vp_DoorInteractable>();
-
+		playerScript = GameObject.Find("PlayerCamera").GetComponent<Player>();
+		
 		if(canBeLocked)
 		{
 			unlocked = false;
@@ -93,7 +95,7 @@ public class vp_DoorInteractable : vp_Interactable
 			return;
 		
 		AudioClip soundToPlay = SwitchSounds[ Random.Range( 0, SwitchSounds.Count ) ];
-		
+
 		if(soundToPlay == null)
 			return;
 		
@@ -186,6 +188,7 @@ public class vp_DoorInteractable : vp_Interactable
 	{
 		doorIsMoving = true;
 		audio.Play();
+		playerScript.changeMusic(2);
 		iTween.RotateBy(leftDoor, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
 		iTween.RotateBy(rightDoor, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear"));
 	}

@@ -19,6 +19,7 @@ public class CandleScript : MonoBehaviour
 	ManagerScript managerScript;
 	
 	Follow followScript;
+	Player playerScript;
 
 	void Awake ()
 	{
@@ -28,6 +29,8 @@ public class CandleScript : MonoBehaviour
 	void Start () 
 	{
 		followScript = GameObject.Find("SlenderMan").GetComponent<Follow>();
+		playerScript = GameObject.Find("PlayerCamera").GetComponent<Player>();
+		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
 		iTween.ScaleTo(candleBottom, iTween.Hash("z", 0.2, "time", torchTime, "easetype", "linear"));
 	}
 	
@@ -50,6 +53,15 @@ public class CandleScript : MonoBehaviour
 		
 		if(!torchOn && nearLightSource && !blowOutAnim)
 		{
+			if(managerScript.slenderActive)
+			{
+				playerScript.changeMusic(2);
+			}
+			else
+			{
+				playerScript.changeMusic(0);
+			}
+
 			iTween.Resume(candleBottom);
 			followScript.canChase = true;
 			torchOn = true;
@@ -60,6 +72,7 @@ public class CandleScript : MonoBehaviour
 	
 	void blowCandleOut ()
 	{
+		playerScript.changeMusic(1);
 		candleLight.enabled = false;
 		candleParticles.enableEmission = false;
 		candleParticles.simulationSpace = ParticleSystemSimulationSpace.World;
