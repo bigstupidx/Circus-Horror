@@ -185,6 +185,7 @@ public class vp_DoorInteractable : vp_Interactable
 	public void CloseDoors ()
 	{
 		doorIsMoving = true;
+		audio.Play();
 		iTween.RotateBy(leftDoor, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
 		iTween.RotateBy(rightDoor, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear"));
 	}

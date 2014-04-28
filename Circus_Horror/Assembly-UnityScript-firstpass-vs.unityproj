@@ -64,7 +64,7 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\CowboyWeaponZoom.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MaceWeaponSwingRight.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ModernCameraZoom.txt" />
-     <None Include="Assets\3rdTry.txt" />
+     <None Include="Assets\UFPS\ArmPositions\3rdTry.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\PerspOldWeapon.txt" />
      <None Include="Assets\6by7\ProBuilder\changelog.txt" />
      <None Include="Assets\6by7\ProBuilder\Shader\VertexBillboard.shader" />
@@ -75,7 +75,7 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ModernWeaponCrouch.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MouseRawUnityCamera.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\CowboyCamera.txt" />
-     <None Include="Assets\newTorchPosition.txt" />
+     <None Include="Assets\UFPS\ArmPositions\newTorchPosition.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\SystemOFFWeapon.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MaceWeaponPullLeft.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ControllerCrouch.txt" />
@@ -99,7 +99,7 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponPistolZoom.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\Persp1999Camera.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ModernController.txt" />
-     <None Include="Assets\2ndTorch.txt" />
+     <None Include="Assets\UFPS\ArmPositions\2ndTorch.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Shooter\ShooterRevolverZoom.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponRevolverReload.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MouseSmoothingCamera.txt" />
@@ -142,7 +142,7 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MechWeapon.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ModernCameraCrouch.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Camera\CameraDead.txt" />
-     <None Include="Assets\torchPosition.txt" />
+     <None Include="Assets\UFPS\ArmPositions\torchPosition.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\CowboyShooter.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MouseLowSensWeapon.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MaceWeaponSwingDownLeft.txt" />

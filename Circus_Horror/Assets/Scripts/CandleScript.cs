@@ -9,6 +9,8 @@ public class CandleScript : MonoBehaviour
 	public Transform candleTopPosition;
 	public Transform candleTop;
 	public int torchTime = 30;
+
+
 	
 	bool torchOn = true;
 	bool nearLightSource = false;
@@ -17,6 +19,11 @@ public class CandleScript : MonoBehaviour
 	ManagerScript managerScript;
 	
 	Follow followScript;
+
+	void Awake ()
+	{
+
+	}
 	// Use this for initialization
 	void Start () 
 	{
