@@ -10,7 +10,8 @@ public class CandleScript : MonoBehaviour
 	public Transform candleTop;
 	public int torchTime = 30;
 
-
+	[System.NonSerialized]
+	public bool canShowClownImage = false;
 	
 	bool torchOn = true;
 	bool nearLightSource = false;
@@ -67,6 +68,7 @@ public class CandleScript : MonoBehaviour
 			torchOn = true;
 			candleLight.enabled = true;
 			candleParticles.enableEmission = true;
+			canShowClownImage = false;
 		}
 	}
 	
@@ -75,6 +77,7 @@ public class CandleScript : MonoBehaviour
 		playerScript.changeMusic(1);
 		candleLight.enabled = false;
 		candleParticles.enableEmission = false;
+		canShowClownImage = true;
 		candleParticles.simulationSpace = ParticleSystemSimulationSpace.World;
 		iTween.RotateBy(gameObject, iTween.Hash("y", -0.055, "x", -0.07, "time", 0.5, "delay", 0.4, "easetype", "easeOutQuad", "oncomplete", "animStopped"));
 		

@@ -12,7 +12,6 @@ public class FogScript : MonoBehaviour
 	{
 		if(other.tag == "Player" && !hasTriggered)
 		{
-			Debug.Log("triggered Fog ");
 			hasTriggered = true;
 			iTween.ValueTo(gameObject, iTween.Hash("from", currentFog, "to", minFog, "time", 5, "onupdate", "UpdateFog"));
 		}
@@ -22,7 +21,6 @@ public class FogScript : MonoBehaviour
 
 	void UpdateFog (float newFogValue)
 	{
-		Debug.Log(RenderSettings.fogDensity);
 		RenderSettings.fogDensity = newFogValue;
 	}
 }
