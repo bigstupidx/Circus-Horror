@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 	public Texture black;
 	public float minTimeToNextImage = 3;
 	public float maxTimeToNextImage = 15;
+
+	public float maxTimeUntilDark = 90;
 	float maxMusicVolume = 0.4f;
 
 	bool fadeIn = false;
@@ -22,6 +24,7 @@ public class Player : MonoBehaviour
 
 	bool startedToBlackout = false;
 	float blackAlphaStart = 0.0f;
+	float currentAlpha;
 
 	CandleScript candleScript;
 	// Use this for initialization
@@ -32,6 +35,7 @@ public class Player : MonoBehaviour
 		audio.loop = true;
 		audio.clip = backgroundMusic[0];
 		audio.Play();
+		currentAlpha = blackAlphaStart;
 	}
 	
 	// Update is called once per frame
@@ -66,6 +70,12 @@ public class Player : MonoBehaviour
 
 		if(candleScript.canShowClownImage)
 		{
+			if(!startedToBlackout)
+			{
+				startedToBlackout = true;
+				iTween.ValueTo(gameObject, iTween.Hash("from", blackAlphaStart, "to", 1.0f, "time", maxTimeUntilDark, "onupdate", "UpdateBlack", "oncomplete", "GameOver"));
+
+			}
 			if(imageTimer < timeToNextImage)
 			{
 				imageTimer += Time.deltaTime;
@@ -81,7 +91,12 @@ public class Player : MonoBehaviour
 		}
 		else
 		{
-
+			if(startedToBlackout)
+			{
+				startedToBlackout = false;
+				iTween.Stop ();
+				currentAlpha = blackAlphaStart;
+			}
 		}
 	}
 
@@ -97,14 +112,14 @@ public class Player : MonoBehaviour
 
 	void OnGUI ()
 	{
+		GUI.color = new Color(1.0f, 1.0f, 1.0f, currentAlpha);
+		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), black);
+
 		if(showImage)
 		{
-			GUI.color = new Color(1.0f, 1.0f, 1.0f, 0.1f);
+			GUI.color = new Color(1.0f, 1.0f, 1.0f, currentAlpha + 0.1f);
 			GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), clownPicture);
 		}
-
-		GUI.color = new Color(1.0f, 1.0f, 1.0f, blackAlpha);
-		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), black);
 	}
 
 	IEnumerator ShowImage ()
@@ -112,5 +127,15 @@ public class Player : MonoBehaviour
 		showImage = true;
 		yield return new WaitForSeconds(0.1f);
 		showImage = false;
+	}
+
+	void UpdateBlack (float blackness)
+	{
+		currentAlpha = blackness;
+	}
+
+	void Gameover ()
+	{
+		Debug.Log("Game Over");
 	}
 }

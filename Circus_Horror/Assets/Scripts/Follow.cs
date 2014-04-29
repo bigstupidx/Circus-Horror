@@ -20,6 +20,8 @@ public class Follow : MonoBehaviour
 	public int distanceForSoundReset = 20;
 	public int timeUntilStartChase = 30;
 
+	public Transform[] idleTargets;
+
 	ManagerScript managerScript;
 
 	bool billyHasPlayed = false;
@@ -31,6 +33,7 @@ public class Follow : MonoBehaviour
 	float timer = 0;
 	float startTimer = 0;
 	bool chasingStarted = false;
+	bool needNewPosition = true;
 
 	// Use this for initialization
 	void Start () 
@@ -39,6 +42,7 @@ public class Follow : MonoBehaviour
 		anim.SetBool("ChasingPlayer", false);
 		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
 		slenderLight.enabled = false;
+		anim.SetBool("ChasingPlayer", false);
 	}
 	
 	// Update is called once per frame
@@ -82,8 +86,24 @@ public class Follow : MonoBehaviour
 		}
 		else
 		{
-			anim.SetBool("ChasingPlayer", false);
-			GetComponent<NavMeshAgent>().destination = transform.position;
+			if(chasingStarted)
+			{
+				if(needNewPosition)
+				{
+					needNewPosition = false;
+					int randomNr = Random.Range (0, idleTargets.Length);
+					GetComponent<NavMeshAgent>().destination = idleTargets[randomNr].position;
+				}
+				else
+				{
+					if(GetComponent<NavMeshAgent>().remainingDistance < 5)
+					{
+						needNewPosition = true;
+					}
+				}
+			}
+
+
 			if(managerScript.slenderActive && !chasingStarted)
 			{
 				transform.position = firstSpawn.position;
