@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
 			if(!startedToBlackout)
 			{
 				startedToBlackout = true;
-				iTween.ValueTo(gameObject, iTween.Hash("from", blackAlphaStart, "to", 1.0f, "time", maxTimeUntilDark, "onupdate", "UpdateBlack", "oncomplete", "GameOver"));
+				iTween.ValueTo(gameObject, iTween.Hash("from", blackAlphaStart, "to", 0.6f, "time", maxTimeUntilDark, "onupdate", "UpdateBlack", "oncomplete", "GameOver"));
 
 			}
 			if(imageTimer < timeToNextImage)
@@ -134,8 +134,9 @@ public class Player : MonoBehaviour
 		currentAlpha = blackness;
 	}
 
-	void Gameover ()
+	void GameOver ()
 	{
 		Debug.Log("Game Over");
+		Application.LoadLevel("MainMenu");
 	}
 }

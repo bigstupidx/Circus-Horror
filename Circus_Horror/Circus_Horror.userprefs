@@ -1,28 +1,25 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Follow.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CandleScript.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player.cs" Line="28" Column="1" />
-      <File FileName="Assets/UFPS/Base/Scripts/Gameplay/Items/Pickups/vp_WeaponPickup.cs" Line="1" Column="1" />
-      <File FileName="Assets/UFPS/Base/Scripts/Gameplay/World/Interaction/vp_DoorInteractable.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player.cs" Line="142" Column="1" />
-      <File FileName="Assets/Scripts/CandleScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/UFPS/Base/Scripts/GUI/vp_SimpleHUD.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ManagerScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/FogScript.cs" Line="16" Column="75" />
-      <File FileName="Assets/Scripts/Follow.cs" Line="99" Column="59" />
+      <File FileName="Assets/Scripts/MainMenu.cs" Line="23" Column="37" />
+      <File FileName="Assets/Scripts/Player.cs" Line="76" Column="78" />
+      <File FileName="Assets/Scripts/Follow.cs" Line="87" Column="39" />
+      <File FileName="Assets/Scripts/CandleScript.cs" Line="75" Column="3" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Scripts" expanded="True">
-              <Node name="Follow.cs" selected="True" />
+              <Node name="CandleScript.cs" selected="True" />
             </Node>
             <Node name="UFPS" expanded="True">
               <Node name="Base" expanded="True">
                 <Node name="Scripts" expanded="True">
-                  <Node name="Core" expanded="True" />
+                  <Node name="Core" expanded="True">
+                    <Node name="Utility" expanded="True" />
+                  </Node>
                   <Node name="Gameplay" expanded="True">
                     <Node name="Items" expanded="True">
                       <Node name="Pickups" expanded="True" />

@@ -81,7 +81,11 @@ public class Follow : MonoBehaviour
 				timer = 0;
 				soundIsPlaying = false;
 			}
-			
+
+			if(distance < 1.5f)
+			{
+				Application.LoadLevel("MainMenu");
+			}
 			GetComponent<NavMeshAgent>().destination = target.position;
 		}
 		else

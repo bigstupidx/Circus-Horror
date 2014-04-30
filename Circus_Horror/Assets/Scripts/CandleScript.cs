@@ -16,6 +16,7 @@ public class CandleScript : MonoBehaviour
 	bool torchOn = true;
 	bool nearLightSource = false;
 	bool blowOutAnim = false;
+	bool candleFinished = false;
 	
 	ManagerScript managerScript;
 	
@@ -32,7 +33,7 @@ public class CandleScript : MonoBehaviour
 		followScript = GameObject.Find("SlenderMan").GetComponent<Follow>();
 		playerScript = GameObject.Find("PlayerCamera").GetComponent<Player>();
 		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
-		iTween.ScaleTo(candleBottom, iTween.Hash("z", 0.2, "time", torchTime, "easetype", "linear"));
+		iTween.ScaleTo(candleBottom, iTween.Hash("z", 1.2, "time", torchTime, "easetype", "linear"));
 	}
 	
 	// Update is called once per frame
@@ -42,7 +43,7 @@ public class CandleScript : MonoBehaviour
 
 		if(Input.GetKey(KeyCode.E))
 		{
-			if(torchOn && !nearLightSource && !blowOutAnim)
+			if(torchOn && !nearLightSource && !blowOutAnim && !candleFinished)
 			{
 				iTween.Pause(candleBottom);
 				followScript.canChase = false;
@@ -52,7 +53,7 @@ public class CandleScript : MonoBehaviour
 			}
 		}
 		
-		if(!torchOn && nearLightSource && !blowOutAnim)
+		if(!torchOn && nearLightSource && !blowOutAnim && !candleFinished)
 		{
 			if(managerScript.slenderActive)
 			{
@@ -69,6 +70,16 @@ public class CandleScript : MonoBehaviour
 			candleLight.enabled = true;
 			candleParticles.enableEmission = true;
 			canShowClownImage = false;
+		}
+
+		if(candleBottom.transform.localScale.z < 1.25f && !candleFinished)
+		{
+			Debug.Log("Candle Finished");
+			playerScript.changeMusic(1);
+			candleLight.enabled = false;
+			candleParticles.enableEmission = false;
+			canShowClownImage = true;
+			candleFinished = true;
 		}
 	}
 	
@@ -95,7 +106,6 @@ public class CandleScript : MonoBehaviour
 		
 		if(other.tag == "FireTrigger")
 		{
-			Debug.Log("near fire");
 			nearLightSource = true;
 		}
 	}
@@ -104,7 +114,6 @@ public class CandleScript : MonoBehaviour
 	{
 		if(other.tag == "FireTrigger")
 		{
-			Debug.Log("not near fire");
 			nearLightSource = false;
 		}
 	}
