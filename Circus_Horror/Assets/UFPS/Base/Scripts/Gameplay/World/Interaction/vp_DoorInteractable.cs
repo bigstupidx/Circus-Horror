@@ -24,33 +24,19 @@ public class vp_DoorInteractable : vp_Interactable
 	public Vector2 SwitchPitchRange = new Vector2(1.0f, 1.5f);
 	public List<AudioClip> SwitchSounds = new List<AudioClip>();		// list of sounds to randomly play when switched
 
-	public GameObject leftDoor;
-	public GameObject rightDoor;
-	public GameObject mazeBarrier;
-
-	public bool canBeLocked;
-
-	bool doorOpen = false;
-	bool doorIsMoving = false;
-	bool unlocked = true;
-
-	bool slenderTriggered = false;
-
-	ManagerScript managerScript;
-	vp_DoorInteractable doorScript;
-	Player playerScript;
+	public GameObject otherDoor;
+	public bool leftDoor = false;
+	[System.NonSerialized]
+	public bool doorOpen = false;
+	[System.NonSerialized]
+	public bool doorIsOpening = false;
+	vp_DoorInteractable otherDoorScript;
 
 	protected override void Start()
 	{
-		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
-		doorScript = GameObject.Find("FirstDoorTrigger").GetComponent<vp_DoorInteractable>();
-		playerScript = GameObject.Find("PlayerCamera").GetComponent<Player>();
-		
-		if(canBeLocked)
-		{
-			unlocked = false;
-		}
-
+		otherDoorScript = otherDoor.GetComponent<vp_DoorInteractable>();
+		otherDoorScript.doorOpen = doorOpen;
+		otherDoorScript.doorIsOpening = doorIsOpening;
 		base.Start();
 		
 		if(AudioSource == null)
@@ -95,7 +81,7 @@ public class vp_DoorInteractable : vp_Interactable
 			return;
 		
 		AudioClip soundToPlay = SwitchSounds[ Random.Range( 0, SwitchSounds.Count ) ];
-
+		
 		if(soundToPlay == null)
 			return;
 		
@@ -111,11 +97,7 @@ public class vp_DoorInteractable : vp_Interactable
 	/// </summary>
 	protected override void OnTriggerEnter(Collider col)
 	{
-		if(col.tag == "FirstKey")
-		{
-			Debug.Log("door unlocked");
-			unlocked = true;
-		}
+		
 		// only do something if the trigger is of type Trigger
 		if (InteractType != vp_InteractType.Trigger)
 			return;
@@ -134,34 +116,32 @@ public class vp_DoorInteractable : vp_Interactable
 		
 		// calls the TryInteract method which is hopefully on the inherited class
 		TryInteract(m_Player);
+		
 	}
 
 	void DoorOpening ()
 	{
-		if (m_Player == null)
-			m_Player = GameObject.FindObjectOfType(typeof(vp_FPPlayerEventHandler)) as vp_FPPlayerEventHandler;
-
-		if(!doorOpen && !doorIsMoving && unlocked)
+		if(!doorIsOpening)
 		{
-			doorOpen = true;
-			doorIsMoving = true;
-			iTween.RotateBy(leftDoor, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
-			iTween.RotateBy(rightDoor, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear"));
-			
-		}
-
-		if(!unlocked)
-		{
-			m_Player.HUDText.Send("You need the key to unlock this door");
-			if(!slenderTriggered)
+			doorOpen = !doorOpen;
+			doorIsOpening = true;
+			if(doorOpen)
 			{
-				doorScript.CloseDoors ();
-				slenderTriggered = true;
-				Destroy(mazeBarrier);
-				managerScript.slenderActive = true;
+				if(leftDoor)
+				{
+					Debug.Log("Open door left Door");
+					iTween.RotateBy(gameObject, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
+					iTween.RotateBy(otherDoor, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear"));
+				}
+				else
+				{
+					Debug.Log("Open door right Door");
+					iTween.RotateBy(gameObject, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
+					iTween.RotateBy(otherDoor, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear"));
+				}
+
 			}
-		}
-		/*else
+			else
 			{
 
 				if(leftDoor)
@@ -176,21 +156,12 @@ public class vp_DoorInteractable : vp_Interactable
 					iTween.RotateBy(gameObject, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
 					iTween.RotateBy(otherDoor, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear"));
 				}
-			}*/
+			}
+		}
 	}
 	
 	void FinishedOpening ()
 	{
-		doorIsMoving = false;
+		doorIsOpening = false;
 	}
-
-	public void CloseDoors ()
-	{
-		doorIsMoving = true;
-		audio.Play();
-		playerScript.changeMusic(2);
-		iTween.RotateBy(leftDoor, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
-		iTween.RotateBy(rightDoor, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear"));
-	}
-
 }

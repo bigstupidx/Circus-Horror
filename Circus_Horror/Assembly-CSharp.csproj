@@ -53,6 +53,7 @@
      <Compile Include="Assets\BIG_Environment_Pack\Atmo_System\AtmoXfade.cs" />
      <Compile Include="Assets\BIG_Environment_Pack\FX\Fire\Fire\FlickerLight.cs" />
      <Compile Include="Assets\Scripts\CandleScript.cs" />
+     <Compile Include="Assets\Scripts\DoorScript.cs" />
      <Compile Include="Assets\Scripts\FogScript.cs" />
      <Compile Include="Assets\Scripts\Follow.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
@@ -178,8 +179,8 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Camera\CameraDefault.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponPistolZoom.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\Persp1999Camera.txt" />
+     <None Include="Assets\torchPosition.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ModernController.txt" />
-     <None Include="Assets\UFPS\ArmPositions\2ndTorch.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Shooter\ShooterRevolverZoom.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponRevolverReload.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MouseSmoothingCamera.txt" />
