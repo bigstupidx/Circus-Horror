@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\ManagerScript.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\SecondDoorTrigger.cs" />
      <Compile Include="Assets\Scripts\StaminaRun.cs" />
      <Compile Include="Assets\Scripts\TorchScript.cs" />
      <Compile Include="Assets\Scripts\iTween\iTween.cs" />
@@ -180,7 +181,6 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\Persp1999Camera.txt" />
      <None Include="Assets\torchPosition.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ModernController.txt" />
-     <None Include="Assets\UFPS\ArmPositions\2ndTorch.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Shooter\ShooterRevolverZoom.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponRevolverReload.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MouseSmoothingCamera.txt" />
