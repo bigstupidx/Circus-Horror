@@ -115,6 +115,7 @@ public class vp_DoorInteractable : vp_Interactable
 		{
 			Debug.Log("door unlocked");
 			unlocked = true;
+			Destroy(col.gameObject);
 		}
 		// only do something if the trigger is of type Trigger
 		if (InteractType != vp_InteractType.Trigger)

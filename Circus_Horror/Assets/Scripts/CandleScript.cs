@@ -41,7 +41,7 @@ public class CandleScript : MonoBehaviour
 	{
 		candleTop.position = candleTopPosition.position;
 
-		if(Input.GetKey(KeyCode.E))
+		if(Input.GetKey(KeyCode.F))
 		{
 			if(torchOn && !nearLightSource && !blowOutAnim && !candleFinished)
 			{
