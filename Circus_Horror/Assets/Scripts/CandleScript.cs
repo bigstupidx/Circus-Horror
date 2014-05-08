@@ -64,6 +64,7 @@ public class CandleScript : MonoBehaviour
 				playerScript.changeMusic(0);
 			}
 
+			candleParticles.simulationSpace = ParticleSystemSimulationSpace.Local;
 			iTween.Resume(candleBottom);
 			followScript.canChase = true;
 			torchOn = true;
@@ -97,7 +98,7 @@ public class CandleScript : MonoBehaviour
 	void animStopped ()
 	{
 		blowOutAnim = false;
-		candleParticles.simulationSpace = ParticleSystemSimulationSpace.Local;
+		//candleParticles.simulationSpace = ParticleSystemSimulationSpace.Local;
 		
 	}
 	
