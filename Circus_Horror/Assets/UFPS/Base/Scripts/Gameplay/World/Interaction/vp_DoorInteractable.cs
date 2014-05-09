@@ -146,9 +146,15 @@ public class vp_DoorInteractable : vp_Interactable
 		{
 			doorOpen = true;
 			doorIsMoving = true;
-			iTween.RotateBy(leftDoor, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
-			iTween.RotateBy(rightDoor, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear"));
-			
+			if(leftDoor != null)
+			{
+				iTween.RotateBy(leftDoor, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
+			}
+			if(rightDoor != null)
+			{
+				iTween.RotateBy(rightDoor, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear"));
+			}
+
 		}
 
 		if(!unlocked)
@@ -190,8 +196,14 @@ public class vp_DoorInteractable : vp_Interactable
 		doorIsMoving = true;
 		audio.Play();
 		playerScript.changeMusic(2);
-		iTween.RotateBy(leftDoor, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
-		iTween.RotateBy(rightDoor, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear"));
+		if(leftDoor != null)
+		{
+			iTween.RotateBy(leftDoor, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
+		}
+		if(rightDoor != null)
+		{
+			iTween.RotateBy(rightDoor, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear"));
+		}
 	}
 
 }
