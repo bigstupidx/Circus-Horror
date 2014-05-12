@@ -1,0 +1,188 @@
+fileFormatVersion: 2
+guid: d634d28679b55422495b9c9f80e1bf97
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Lanter Door Latch 2
+    100002: //RootNode
+    100004: Lantern Candle Holder
+    100006: Lantern Door Latch 1
+    100008: Lantern Glass
+    100010: Lantern Glass 2
+    100012: Lantern Glass 3
+    100014: Lantern Glass 4
+    100016: Lantern Handle
+    100018: Lantern Hinge
+    100020: Lantern Hinge001
+    100022: Lantern Latch Hook
+    100024: Lantern Lid
+    100026: Lantern Lid hoop 1
+    100028: Lantern Lid Hoop 2
+    100030: Lantern Screw Head 1
+    100032: Lantern Screw Head 2
+    100034: Lantern Screw Head 3
+    100036: Lantern Screw Head 4
+    100038: Lantern Screw Head 5
+    100040: Lantern Screw Head 6
+    100042: Lantern Screw Head 7
+    100044: Lantern Screw Head 8
+    100046: Lantern Top
+    100048: Lantern Vent
+    100050: Lantern Vent Lid
+    100052: Lartern
+    400000: Lanter Door Latch 2
+    400002: //RootNode
+    400004: Lantern Candle Holder
+    400006: Lantern Door Latch 1
+    400008: Lantern Glass
+    400010: Lantern Glass 2
+    400012: Lantern Glass 3
+    400014: Lantern Glass 4
+    400016: Lantern Handle
+    400018: Lantern Hinge
+    400020: Lantern Hinge001
+    400022: Lantern Latch Hook
+    400024: Lantern Lid
+    400026: Lantern Lid hoop 1
+    400028: Lantern Lid Hoop 2
+    400030: Lantern Screw Head 1
+    400032: Lantern Screw Head 2
+    400034: Lantern Screw Head 3
+    400036: Lantern Screw Head 4
+    400038: Lantern Screw Head 5
+    400040: Lantern Screw Head 6
+    400042: Lantern Screw Head 7
+    400044: Lantern Screw Head 8
+    400046: Lantern Top
+    400048: Lantern Vent
+    400050: Lantern Vent Lid
+    400052: Lartern
+    2300000: Lanter Door Latch 2
+    2300002: Lantern Candle Holder
+    2300004: Lantern Door Latch 1
+    2300006: Lantern Glass
+    2300008: Lantern Glass 2
+    2300010: Lantern Glass 3
+    2300012: Lantern Glass 4
+    2300014: Lantern Handle
+    2300016: Lantern Hinge
+    2300018: Lantern Hinge001
+    2300020: Lantern Latch Hook
+    2300022: Lantern Lid
+    2300024: Lantern Lid hoop 1
+    2300026: Lantern Lid Hoop 2
+    2300028: Lantern Screw Head 1
+    2300030: Lantern Screw Head 2
+    2300032: Lantern Screw Head 3
+    2300034: Lantern Screw Head 4
+    2300036: Lantern Screw Head 5
+    2300038: Lantern Screw Head 6
+    2300040: Lantern Screw Head 7
+    2300042: Lantern Screw Head 8
+    2300044: Lantern Vent
+    2300046: Lantern Vent Lid
+    2300048: Lartern
+    3300000: Lanter Door Latch 2
+    3300002: Lantern Candle Holder
+    3300004: Lantern Door Latch 1
+    3300006: Lantern Glass
+    3300008: Lantern Glass 2
+    3300010: Lantern Glass 3
+    3300012: Lantern Glass 4
+    3300014: Lantern Handle
+    3300016: Lantern Hinge
+    3300018: Lantern Hinge001
+    3300020: Lantern Latch Hook
+    3300022: Lantern Lid
+    3300024: Lantern Lid hoop 1
+    3300026: Lantern Lid Hoop 2
+    3300028: Lantern Screw Head 1
+    3300030: Lantern Screw Head 2
+    3300032: Lantern Screw Head 3
+    3300034: Lantern Screw Head 4
+    3300036: Lantern Screw Head 5
+    3300038: Lantern Screw Head 6
+    3300040: Lantern Screw Head 7
+    3300042: Lantern Screw Head 8
+    3300044: Lantern Vent
+    3300046: Lantern Vent Lid
+    3300048: Lartern
+    4300000: Lartern
+    4300002: Lantern Glass
+    4300004: Lantern Glass 3
+    4300006: Lantern Glass 4
+    4300008: Lantern Glass 2
+    4300010: Lantern Hinge
+    4300012: Lantern Screw Head 2
+    4300014: Lantern Screw Head 4
+    4300016: Lantern Screw Head 3
+    4300018: Lantern Screw Head 1
+    4300020: Lantern Screw Head 7
+    4300022: Lantern Screw Head 5
+    4300024: Lantern Screw Head 6
+    4300026: Lantern Screw Head 8
+    4300028: Lantern Hinge001
+    4300030: Lantern Candle Holder
+    4300032: Lantern Lid
+    4300034: Lantern Vent
+    4300036: Lantern Vent Lid
+    4300038: Lantern Lid hoop 1
+    4300040: Lantern Lid Hoop 2
+    4300042: Lantern Handle
+    4300044: Lanter Door Latch 2
+    4300046: Lantern Door Latch 1
+    4300048: Lantern Latch Hook
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
