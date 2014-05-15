@@ -7,6 +7,10 @@ public class Follow : MonoBehaviour
 	public Transform target;
 
 	public Transform firstSpawn;
+	public Transform startPosition;
+
+	public Transform forestStartPosition;
+	public Transform forestEndPosition;
 
 	public Light slenderLight;
 
@@ -15,6 +19,10 @@ public class Follow : MonoBehaviour
 
 	[System.NonSerialized]
 	public bool canChase = true;
+
+	[System.NonSerialized]
+	public bool forestTrigger = false;
+
 	public int timeUntilSoundPlays = 30;
 	public int soundDistance = 10;
 	public int distanceForSoundReset = 20;
@@ -28,21 +36,23 @@ public class Follow : MonoBehaviour
 	float distance;
 
 	Animator anim;
-
+	NavMeshAgent agent;
 
 	float timer = 0;
 	float startTimer = 0;
 	bool chasingStarted = false;
 	bool needNewPosition = true;
 
+	bool forestRun = false;
+	bool hasForestDestination = false;
 	// Use this for initialization
 	void Start () 
 	{
+		agent = GetComponent<NavMeshAgent>();
 		anim = GetComponent<Animator>();
 		anim.SetBool("ChasingPlayer", false);
 		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
 		slenderLight.enabled = false;
-		anim.SetBool("ChasingPlayer", false);
 	}
 	
 	// Update is called once per frame
@@ -82,14 +92,61 @@ public class Follow : MonoBehaviour
 				soundIsPlaying = false;
 			}
 
+			if(distance < 15)
+			{
+				agent.speed = 4;
+				anim.SetBool("CloseToPlayer", true);
+			}
+			else
+			{
+				agent.speed = 1;
+				anim.SetBool("CloseToPlayer", false);
+			}
+
 			if(distance < 1.5f)
 			{
 				Application.LoadLevel("MainMenu");
 			}
-			GetComponent<NavMeshAgent>().destination = target.position;
+			agent.destination = target.position;
 		}
 		else
 		{
+			if(forestTrigger)
+			{
+				if(!forestRun)
+				{
+					Debug.Log("StartingForestRun");
+					forestRun = true;
+					agent.enabled = false;
+					transform.position = forestStartPosition.position;
+					agent.enabled = true;
+					agent.destination = forestEndPosition.position;
+					agent.speed = 8;
+					anim.SetBool("ChasingPlayer", true);
+					anim.SetBool("CloseToPlayer", true);
+
+					slenderLight.enabled = true;
+
+					StartCoroutine(GetDestination());
+				}
+
+
+				if(hasForestDestination && agent.remainingDistance < 4)
+				{
+					Debug.Log("made forest destination");
+
+					agent.enabled = false;
+					transform.position = startPosition.position;
+					agent.speed = 1;
+					StartCoroutine(SetAnimBackToStart());
+					slenderLight.enabled = false;
+					forestRun = false;
+					forestTrigger = false;
+				}
+			}
+
+
+
 			if(chasingStarted)
 			{
 				if(needNewPosition)
@@ -118,10 +175,25 @@ public class Follow : MonoBehaviour
 				}
 				else
 				{
+					agent.enabled = true;
 					slenderLight.enabled = false;
 					chasingStarted = true;
 				}
 			}
 		}
+	}
+
+	IEnumerator GetDestination ()
+	{
+		yield return new WaitForSeconds(1);
+		hasForestDestination = true;
+	}
+
+	IEnumerator SetAnimBackToStart ()
+	{
+		anim.SetBool("CloseToPlayer", false);
+		yield return new WaitForSeconds(2);
+		anim.SetBool("ChasingPlayer", false);
+		agent.speed = 1;
 	}
 }

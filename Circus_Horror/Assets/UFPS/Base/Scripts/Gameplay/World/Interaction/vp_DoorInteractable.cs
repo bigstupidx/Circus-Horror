@@ -169,7 +169,7 @@ public class vp_DoorInteractable : vp_Interactable
 
 		if(cabinDoor && !cabinDoorUnlocked)
 		{
-			m_Player.HUDText.Send("You need a candle before you go outside");
+			m_Player.HUDText.Send("It's too dark outside. You need to get a candle");
 		}
 
 		if(!unlocked)

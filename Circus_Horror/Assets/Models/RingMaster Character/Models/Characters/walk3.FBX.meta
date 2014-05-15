@@ -311,14 +311,14 @@ ModelImporter:
       scale: {x: 1, y: .99999994, z: .99999994}
       transformModified: 1
     - name: Bip001 L Calf
-      position: {x: -.197687626, y: 0, z: 0}
+      position: {x: -.202782974, y: .0123413019, z: -.00141552649}
       rotation: {x: -.0270077735, y: .0419751704, z: .301193714, w: .952255785}
       scale: {x: 1.00000012, y: 1, z: 1.00000012}
       transformModified: 1
     - name: Bip001 L Foot
-      position: {x: -.19770515, y: 4.734908e-05, z: 3.28756869e-06}
-      rotation: {x: .323273778, y: -.941415012, z: .0856904015, w: .0434633195}
-      scale: {x: .999999821, y: 1, z: 1.00000012}
+      position: {x: -.194685116, y: .0210988522, z: -.00103602745}
+      rotation: {x: .387910575, y: -.917489707, z: .0798884332, w: .036823988}
+      scale: {x: .999999821, y: .920613885, z: 1.00000012}
       transformModified: 1
     - name: Bip001 L Toe0
       position: {x: -.0454680622, y: .058515586, z: -1.33514405e-07}

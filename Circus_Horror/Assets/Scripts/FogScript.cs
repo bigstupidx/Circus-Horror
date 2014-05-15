@@ -30,7 +30,7 @@ public class FogScript : MonoBehaviour
 				{
 					doorScript.CloseCabinDoor();
 				}
-				iTween.ValueTo(gameObject, iTween.Hash("from", minFog, "to", currentFog, "time", 3, "onupdate", "UpdateFog"));
+				iTween.ValueTo(gameObject, iTween.Hash("from", minFog, "to", currentFog, "time", 1, "onupdate", "UpdateFog"));
 			}
 			else
 			{
