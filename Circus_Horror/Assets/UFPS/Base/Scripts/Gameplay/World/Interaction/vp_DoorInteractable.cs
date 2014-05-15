@@ -29,6 +29,9 @@ public class vp_DoorInteractable : vp_Interactable
 	public GameObject mazeBarrier;
 
 	public bool canBeLocked;
+	public bool cabinDoor;
+	[System.NonSerialized]
+	public bool cabinDoorUnlocked = true;
 
 	bool doorOpen = false;
 	bool doorIsMoving = false;
@@ -39,6 +42,7 @@ public class vp_DoorInteractable : vp_Interactable
 	ManagerScript managerScript;
 	vp_DoorInteractable doorScript;
 	Player playerScript;
+	CandleScript candleScript;
 
 	protected override void Start()
 	{
@@ -49,6 +53,11 @@ public class vp_DoorInteractable : vp_Interactable
 		if(canBeLocked)
 		{
 			unlocked = false;
+		}
+
+		if(cabinDoor)
+		{
+			cabinDoorUnlocked = false;
 		}
 
 		base.Start();
@@ -117,6 +126,7 @@ public class vp_DoorInteractable : vp_Interactable
 			unlocked = true;
 			Destroy(col.gameObject);
 		}
+
 		// only do something if the trigger is of type Trigger
 		if (InteractType != vp_InteractType.Trigger)
 			return;
@@ -142,7 +152,7 @@ public class vp_DoorInteractable : vp_Interactable
 		if (m_Player == null)
 			m_Player = GameObject.FindObjectOfType(typeof(vp_FPPlayerEventHandler)) as vp_FPPlayerEventHandler;
 
-		if(!doorOpen && !doorIsMoving && unlocked)
+		if(!doorOpen && !doorIsMoving && unlocked && cabinDoorUnlocked)
 		{
 			doorOpen = true;
 			doorIsMoving = true;
@@ -155,6 +165,11 @@ public class vp_DoorInteractable : vp_Interactable
 				iTween.RotateBy(rightDoor, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear"));
 			}
 
+		}
+
+		if(cabinDoor && !cabinDoorUnlocked)
+		{
+			m_Player.HUDText.Send("You need a candle before you go outside");
 		}
 
 		if(!unlocked)
@@ -204,6 +219,14 @@ public class vp_DoorInteractable : vp_Interactable
 		{
 			iTween.RotateBy(rightDoor, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear"));
 		}
+	}
+
+	public void CloseCabinDoor ()
+	{
+		iTween.RotateBy(rightDoor, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear"));
+		candleScript = GameObject.Find("Arm").GetComponent<CandleScript>();
+		candleScript.CandleTrigger();
+		m_Player.HUDText.Send("The dark is scary, you can re-lite the candle at a fire");
 	}
 
 }

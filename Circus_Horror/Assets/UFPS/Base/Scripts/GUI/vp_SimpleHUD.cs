@@ -97,7 +97,8 @@ public class vp_SimpleHUD : MonoBehaviour
 		// show a message in the middle of the screen and fade it out
 		if (!string.IsNullOrEmpty(m_PickupMessage) && m_MessageColor.a > 0.01f)
 		{
-			m_MessageColor = Color.Lerp(m_MessageColor, m_InvisibleColor, Time.deltaTime * 0.4f);
+
+			m_MessageColor = Color.Lerp(m_MessageColor, m_InvisibleColor, Time.deltaTime * 0.2f);
 			GUI.color = m_MessageColor;
 			GUI.Box(new Rect(200, 150, Screen.width - 400, Screen.height - 400), m_PickupMessage, MessageStyle);
 			GUI.color = Color.white;
@@ -106,7 +107,7 @@ public class vp_SimpleHUD : MonoBehaviour
 		// show a red glow along the screen edges when damaged
 		if (DamageFlashTexture != null && m_DamageFlashColor.a > 0.01f)
 		{
-			m_DamageFlashColor = Color.Lerp(m_DamageFlashColor, m_DamageFlashInvisibleColor, Time.deltaTime * 0.4f);
+			m_DamageFlashColor = Color.Lerp(m_DamageFlashColor, m_DamageFlashInvisibleColor, Time.deltaTime * 0.2f);
 			GUI.color = m_DamageFlashColor;
 			GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), DamageFlashTexture);
 			GUI.color = Color.white;

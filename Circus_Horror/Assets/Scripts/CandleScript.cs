@@ -22,6 +22,7 @@ public class CandleScript : MonoBehaviour
 	
 	Follow followScript;
 	Player playerScript;
+	vp_DoorInteractable doorScript;
 
 	void Awake ()
 	{
@@ -30,6 +31,7 @@ public class CandleScript : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+
 		followScript = GameObject.Find("SlenderMan").GetComponent<Follow>();
 		playerScript = GameObject.Find("PlayerCamera").GetComponent<Player>();
 		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
@@ -94,6 +96,17 @@ public class CandleScript : MonoBehaviour
 		iTween.RotateBy(gameObject, iTween.Hash("y", -0.055, "x", -0.07, "time", 0.5, "delay", 0.4, "easetype", "easeOutQuad", "oncomplete", "animStopped"));
 		
 	}
+
+	public void CandleTrigger ()
+	{
+		iTween.Pause(candleBottom);
+		torchOn = false;
+		playerScript.changeMusic(1);
+		candleLight.enabled = false;
+		candleParticles.enableEmission = false;
+		canShowClownImage = true;
+		candleParticles.simulationSpace = ParticleSystemSimulationSpace.World;
+	}
 	
 	void animStopped ()
 	{
@@ -107,6 +120,7 @@ public class CandleScript : MonoBehaviour
 		
 		if(other.tag == "FireTrigger")
 		{
+			Debug.Log("near fire");
 			nearLightSource = true;
 		}
 	}
