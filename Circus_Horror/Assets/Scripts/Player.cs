@@ -27,10 +27,12 @@ public class Player : MonoBehaviour
 	float currentAlpha;
 
 	CandleScript candleScript;
+	vp_DoorInteractable doorScript;
 	// Use this for initialization
 	void Start () 
 	{
 		candleScript = GameObject.Find("Arm").GetComponent<CandleScript>();
+		doorScript = GameObject.Find("CabinDoorTrigger").GetComponent<vp_DoorInteractable>();
 		timeToNextImage = Random.Range(minTimeToNextImage, maxTimeToNextImage);
 		audio.loop = true;
 		audio.clip = backgroundMusic[0];
@@ -138,5 +140,13 @@ public class Player : MonoBehaviour
 	{
 		Debug.Log("Game Over");
 		Application.LoadLevel("MainMenu");
+	}
+
+	void OnTriggerEnter (Collider other)
+	{
+		if(other.tag == "CandlePickup")
+		{
+			doorScript.cabinDoorUnlocked = true;
+		}
 	}
 }

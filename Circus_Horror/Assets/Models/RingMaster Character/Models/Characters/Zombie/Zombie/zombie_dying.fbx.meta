@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 6fa62c7c5599e4249b67d2e11454b21d
 ModelImporter:
-  serializedVersion: 15
+  serializedVersion: 16
   fileIDToRecycleName:
     100000: Chin
     100002: Head
@@ -1339,4 +1339,5 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 3
+  additionalBone: 0
   userData: 
