@@ -1,0 +1,126 @@
+fileFormatVersion: 2
+guid: 9677347f6396d1b42a72908de41d0607
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Box001
+    100002: //RootNode
+    100004: Cannon
+    100006: Cannon Cart
+    100008: Cannon Cart Upright
+    100010: Cannon Cart Upright001
+    100012: Cannon Tow Bar
+    100014: Cannon Wheel 001
+    100016: Cannon Wheel 002
+    100018: Fuse Cable
+    100020: Fuse Holder
+    100022: Object001
+    100024: Wheel Connection
+    100026: Wheel Support Beam
+    400000: Box001
+    400002: //RootNode
+    400004: Cannon
+    400006: Cannon Cart
+    400008: Cannon Cart Upright
+    400010: Cannon Cart Upright001
+    400012: Cannon Tow Bar
+    400014: Cannon Wheel 001
+    400016: Cannon Wheel 002
+    400018: Fuse Cable
+    400020: Fuse Holder
+    400022: Object001
+    400024: Wheel Connection
+    400026: Wheel Support Beam
+    2300000: Box001
+    2300002: Cannon
+    2300004: Cannon Cart
+    2300006: Cannon Cart Upright
+    2300008: Cannon Cart Upright001
+    2300010: Cannon Tow Bar
+    2300012: Cannon Wheel 001
+    2300014: Cannon Wheel 002
+    2300016: Fuse Cable
+    2300018: Fuse Holder
+    2300020: Object001
+    2300022: Wheel Connection
+    2300024: Wheel Support Beam
+    3300000: Box001
+    3300002: Cannon
+    3300004: Cannon Cart
+    3300006: Cannon Cart Upright
+    3300008: Cannon Cart Upright001
+    3300010: Cannon Tow Bar
+    3300012: Cannon Wheel 001
+    3300014: Cannon Wheel 002
+    3300016: Fuse Cable
+    3300018: Fuse Holder
+    3300020: Object001
+    3300022: Wheel Connection
+    3300024: Wheel Support Beam
+    4300000: Cannon Cart
+    4300002: Cannon
+    4300004: Cannon Cart Upright
+    4300006: Cannon Cart Upright001
+    4300008: Fuse Cable
+    4300010: Fuse Holder
+    4300012: Cannon Wheel 001
+    4300014: Cannon Wheel 002
+    4300016: Wheel Support Beam
+    4300018: Wheel Connection
+    4300020: Cannon Tow Bar
+    4300022: Box001
+    4300024: Object001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
