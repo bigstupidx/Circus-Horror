@@ -50,6 +50,15 @@ ModelImporter:
     4300012: Table Leg 002
     4300014: Table Leg 003
     4300016: Table Leg 004
+    6400000: Table
+    6400002: Table Leg 001
+    6400004: Table Leg 002
+    6400006: Table Leg 003
+    6400008: Table Leg 004
+    6400010: Table Restraint
+    6400012: Table Restraint001
+    6400014: Table Restraint002
+    6400016: Table Restraint003
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -71,7 +80,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: .00999999978
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
