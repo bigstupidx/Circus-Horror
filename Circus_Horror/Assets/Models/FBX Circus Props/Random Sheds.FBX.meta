@@ -35,6 +35,12 @@ ModelImporter:
     4300006: Box002
     4300008: Cylinder003
     4300010: Box003
+    6400000: Box001
+    6400002: Box002
+    6400004: Box003
+    6400006: Cylinder001
+    6400008: Cylinder002
+    6400010: Cylinder003
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -56,7 +62,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: .00999999978
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
