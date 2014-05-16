@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2589aa37a93a9dc4c827cae0973c26ab
+guid: 98a9f3f81fc50b84182e943fc90cf627
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -25,11 +25,15 @@ ModelImporter:
     4300002: Box003
     4300004: Cylinder001
     4300006: Cylinder002
+    6400000: Box002
+    6400002: Box003
+    6400004: Cylinder001
+    6400006: Cylinder002
     9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 2
-    materialSearch: 1
+    materialSearch: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -44,9 +48,9 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .00800000038
+    globalScale: .00999999978
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
