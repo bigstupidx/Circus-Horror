@@ -53,6 +53,7 @@
      <Compile Include="Assets\BIG_Environment_Pack\Atmo_System\AtmoXfade.cs" />
      <Compile Include="Assets\BIG_Environment_Pack\FX\Fire\Fire\FlickerLight.cs" />
      <Compile Include="Assets\Scripts\CandleScript.cs" />
+     <Compile Include="Assets\Scripts\CanonBall.cs" />
      <Compile Include="Assets\Scripts\FogScript.cs" />
      <Compile Include="Assets\Scripts\Follow.cs" />
      <Compile Include="Assets\Scripts\ForestTrigger.cs" />
