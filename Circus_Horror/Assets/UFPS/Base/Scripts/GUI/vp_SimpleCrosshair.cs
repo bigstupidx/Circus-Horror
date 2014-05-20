@@ -19,7 +19,8 @@ public class vp_SimpleCrosshair : MonoBehaviour
 	public Texture m_ImageCrosshair = null;
 	
 	protected vp_FPPlayerEventHandler m_Player = null;
-	
+
+	EndCameraScript endScript;
 	
 	protected virtual void Awake()
 	{
@@ -28,7 +29,10 @@ public class vp_SimpleCrosshair : MonoBehaviour
 		
 	}
 	
-	
+	protected virtual void Start ()
+	{
+		endScript = GameObject.Find("EndCamera").GetComponent<EndCameraScript>();
+	}
 	/// <summary>
 	/// registers this component with the event handler (if any)
 	/// </summary>
@@ -65,11 +69,14 @@ public class vp_SimpleCrosshair : MonoBehaviour
 			//&& !m_Player.Zoom.Active	// <-- uncomment this line to make crosshair disappear when aiming down sights
 			)
 		{
-			GUI.color = new Color(1, 1, 1, 0.8f);
-			GUI.DrawTexture(new Rect((Screen.width * 0.5f) - (m_ImageCrosshair.width * 0.5f),
-				(Screen.height * 0.5f) - (m_ImageCrosshair.height * 0.5f), m_ImageCrosshair.width,
-				m_ImageCrosshair.height), m_ImageCrosshair);
-			GUI.color = Color.white;
+			if(!endScript.gameOver)
+			{
+				GUI.color = new Color(1, 1, 1, 0.8f);
+				GUI.DrawTexture(new Rect((Screen.width * 0.5f) - (m_ImageCrosshair.width * 0.5f),
+				                         (Screen.height * 0.5f) - (m_ImageCrosshair.height * 0.5f), m_ImageCrosshair.width,
+				                         m_ImageCrosshair.height), m_ImageCrosshair);
+				GUI.color = Color.white;
+			}
 		}
 	
 	}

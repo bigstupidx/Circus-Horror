@@ -7,6 +7,7 @@ public class Follow : MonoBehaviour
 	public Transform target;
 
 	public Transform firstSpawn;
+	public Transform secondSpawn;
 	public Transform startPosition;
 
 	public Transform forestStartPosition;
@@ -29,6 +30,7 @@ public class Follow : MonoBehaviour
 	public int timeUntilStartChase = 30;
 
 	public Transform[] idleTargets;
+	public Transform[] secondIdleTargets;
 
 	ManagerScript managerScript;
 	EndCameraScript endScript;
@@ -41,11 +43,15 @@ public class Follow : MonoBehaviour
 
 	float timer = 0;
 	float startTimer = 0;
-	bool chasingStarted = false;
+	public bool chasingStarted = false;
 	bool needNewPosition = true;
+
+	public bool secondArea = false;
 
 	bool forestRun = false;
 	bool hasForestDestination = false;
+
+	bool startedSecondArea = false;
 	// Use this for initialization
 	void Start () 
 	{
@@ -125,7 +131,7 @@ public class Follow : MonoBehaviour
 					transform.position = forestStartPosition.position;
 					agent.enabled = true;
 					agent.destination = forestEndPosition.position;
-					agent.speed = 8;
+					agent.speed = 6;
 					anim.SetBool("ChasingPlayer", true);
 					anim.SetBool("CloseToPlayer", true);
 
@@ -156,12 +162,21 @@ public class Follow : MonoBehaviour
 				if(needNewPosition)
 				{
 					needNewPosition = false;
-					int randomNr = Random.Range (0, idleTargets.Length);
-					GetComponent<NavMeshAgent>().destination = idleTargets[randomNr].position;
+					if(secondArea)
+					{
+						int randomNr = Random.Range(0, secondIdleTargets.Length);
+						agent.destination = idleTargets[randomNr].position;
+					}
+					else
+					{
+						int randomNr = Random.Range (0, idleTargets.Length);
+						agent.destination = idleTargets[randomNr].position;
+					}
+
 				}
 				else
 				{
-					if(GetComponent<NavMeshAgent>().remainingDistance < 5)
+					if(agent.remainingDistance < 5)
 					{
 						needNewPosition = true;
 					}
@@ -171,7 +186,21 @@ public class Follow : MonoBehaviour
 
 			if(managerScript.slenderActive && !chasingStarted)
 			{
-				transform.position = firstSpawn.position;
+				if(secondArea)
+				{
+					if(!startedSecondArea)
+					{
+						startedSecondArea = true;
+						agent.enabled = false;
+						transform.position = secondSpawn.position;
+						startTimer = 0;
+					}
+				}
+				else
+				{
+					transform.position = firstSpawn.position;
+				}
+
 				slenderLight.enabled = true;
 				if(startTimer < timeUntilStartChase)
 				{
@@ -200,4 +229,6 @@ public class Follow : MonoBehaviour
 		anim.SetBool("ChasingPlayer", false);
 		agent.speed = 1;
 	}
+
+
 }

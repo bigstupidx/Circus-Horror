@@ -18,12 +18,17 @@ public class CanonBall : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if(Input.GetKeyDown(KeyCode.U) && !hasTriggered)
+
+	}
+
+	public void Shoot ()
+	{
+		if(!hasTriggered)
 		{
 			Destroy(leftDoor);
 			Destroy(rightDoor);
 			Instantiate(brokenDoor, doorPosition.position, doorPosition.rotation);
-
+			
 			wall.collider.enabled = false;
 			hasTriggered = true;
 			rigidbody.isKinematic = false;

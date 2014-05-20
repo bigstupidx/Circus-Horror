@@ -30,6 +30,7 @@ public class EndCameraScript : MonoBehaviour
 		{
 			if(!cameraHasChanged)
 			{
+				GameObject.Find("Player").GetComponent<vp_SimpleHUD>().ShowHUD = false;
 				playerScript.changeMusic(3);
 				cameraHasChanged = true;
 				weaponCamera.enabled = false;
@@ -63,9 +64,10 @@ public class EndCameraScript : MonoBehaviour
 
 		if(cameraHasChanged)
 		{
-
+			GUI.enabled = true;
 			if(GUI.Button(new Rect(Screen.width / 2 - 45, Screen.height * 0.6f, 90, 40), "Restart"))
 			{
+				Debug.Log("button clicked");
 				Application.LoadLevel("Level01");
 			}
 			GUI.color = new Color(1.0f, 1.0f, 1.0f, currentAlpha);
