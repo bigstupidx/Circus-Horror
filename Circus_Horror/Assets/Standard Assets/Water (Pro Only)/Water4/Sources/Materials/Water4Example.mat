@@ -295,12 +295,20 @@ Material:
         second: {r: 1, g: 1, b: -.00999999978, a: -.00999999978}
       data:
         first:
+          name: _Displacement
+        second: {r: 6.6371665, g: 20.3539829, b: -1, a: -.681415975}
+      data:
+        first:
+          name: _ShoreTiling
+        second: {r: 1, g: 1, b: .100000001, a: .100000001}
+      data:
+        first:
           name: _BaseColor
-        second: {r: .154918075, g: .269496471, b: .299887866, a: .819999993}
+        second: {r: .155492574, g: .270143032, b: .300541073, a: .819999993}
       data:
         first:
           name: _ReflectionColor
-        second: {r: .580570579, g: .685858428, b: .761940598, a: .431372553}
+        second: {r: .581114948, g: .686298549, b: .762293875, a: .431372553}
       data:
         first:
           name: _BumpTiling
@@ -327,14 +335,6 @@ Material:
         second: {r: -.137892023, g: -.181384608, b: .973696768, a: 0}
       data:
         first:
-          name: _Displacement
-        second: {r: 6.6371665, g: 20.3539829, b: -1, a: -.681415975}
-      data:
-        first:
-          name: _ShoreTiling
-        second: {r: 1, g: 1, b: .100000001, a: .100000001}
-      data:
-        first:
           name: _AnimationTiling
         second: {r: .0458255298, g: .0182000007, b: .0457144678, a: .0271296911}
       data:
@@ -344,7 +344,7 @@ Material:
       data:
         first:
           name: _SpecularColor
-        second: {r: .918192208, g: .918192208, b: .918192208, a: 1}
+        second: {r: .918325484, g: .918325484, b: .918325484, a: 1}
       data:
         first:
           name: _DepthColor

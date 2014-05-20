@@ -1,18 +1,6 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/UFPS/Base/Scripts/Gameplay/World/Interaction/vp_Interactable_Key.cs">
-    <Files>
-      <File FileName="Assets/Scripts/Follow.cs" Line="53" Column="35" />
-      <File FileName="Assets/Scripts/CandleScript.cs" Line="36" Column="73" />
-      <File FileName="Assets/Scripts/Player.cs" Line="124" Column="71" />
-      <File FileName="Assets/Scripts/EndCameraScript.cs" Line="24" Column="1" />
-      <File FileName="Assets/Scripts/MainMenu.cs" Line="24" Column="37" />
-      <File FileName="Assets/UFPS/Base/Scripts/Gameplay/World/Interaction/vp_DoorInteractable.cs" Line="172" Column="77" />
-      <File FileName="Assets/UFPS/Base/Scripts/Gameplay/World/Interaction/vp_Interactable_Key.cs" Line="56" Column="22" />
-      <File FileName="Assets/Scripts/SecondDoorTrigger.cs" Line="47" Column="29" />
-      <File FileName="Assets/Scripts/ManagerScript.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
