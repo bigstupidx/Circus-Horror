@@ -35,7 +35,7 @@ public class vp_DoorInteractable : vp_Interactable
 
 	bool doorOpen = false;
 	bool doorIsMoving = false;
-	bool unlocked = true;
+	public bool unlocked = true;
 
 	bool slenderTriggered = false;
 

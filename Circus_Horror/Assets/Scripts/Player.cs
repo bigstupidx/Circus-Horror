@@ -11,13 +11,13 @@ public class Player : MonoBehaviour
 	public float maxTimeToNextImage = 15;
 
 	public float maxTimeUntilDark = 90;
-	float maxMusicVolume = 0.4f;
+	//float maxMusicVolume = 0.4f;
 
-	bool fadeIn = false;
-	bool fadeOut = false;
+	//bool fadeIn = false;
+	//bool fadeOut = false;
 	bool showImage = false;
 
-	int newMusicNr;
+	//int newMusicNr;
 
 	float imageTimer = 0;
 	float timeToNextImage;
@@ -28,11 +28,15 @@ public class Player : MonoBehaviour
 
 	CandleScript candleScript;
 	vp_DoorInteractable doorScript;
+	EndCameraScript endScript;
+	Follow followScritp;
 	// Use this for initialization
 	void Start () 
 	{
 		candleScript = GameObject.Find("Arm").GetComponent<CandleScript>();
 		doorScript = GameObject.Find("CabinDoorTrigger").GetComponent<vp_DoorInteractable>();
+		endScript = GameObject.Find("EndCamera").GetComponent<EndCameraScript>();
+		followScritp = GameObject.Find("SlenderMan").GetComponent<Follow>();
 		timeToNextImage = Random.Range(minTimeToNextImage, maxTimeToNextImage);
 		audio.loop = true;
 		audio.clip = backgroundMusic[0];
@@ -43,7 +47,7 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if(fadeOut)
+		/*if(fadeOut)
 		{
 			if(audio.volume > 0)
 			{
@@ -68,7 +72,7 @@ public class Player : MonoBehaviour
 			{
 				fadeIn = false;
 			}
-		}
+		}*/
 
 		if(candleScript.canShowClownImage)
 		{
@@ -104,11 +108,13 @@ public class Player : MonoBehaviour
 
 	public void changeMusic (int musicNr)
 	{
-		newMusicNr = musicNr;
+		//newMusicNr = musicNr;
 
 		if(audio.isPlaying)
 		{
-			fadeOut = true;
+			audio.Stop();
+			audio.clip = backgroundMusic[musicNr];
+			audio.Play();
 		}
 	}
 
@@ -138,8 +144,9 @@ public class Player : MonoBehaviour
 
 	void GameOver ()
 	{
-		Debug.Log("Game Over");
-		Application.LoadLevel("MainMenu");
+		followScritp.canChase = false;
+		endScript.gameOver = true;
+		//Application.LoadLevel("MainMenu");
 	}
 
 	void OnTriggerEnter (Collider other)

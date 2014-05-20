@@ -31,6 +31,7 @@ public class Follow : MonoBehaviour
 	public Transform[] idleTargets;
 
 	ManagerScript managerScript;
+	EndCameraScript endScript;
 
 	bool billyHasPlayed = false;
 	float distance;
@@ -52,6 +53,7 @@ public class Follow : MonoBehaviour
 		anim = GetComponent<Animator>();
 		anim.SetBool("ChasingPlayer", false);
 		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
+		endScript = GameObject.Find("EndCamera").GetComponent<EndCameraScript>();
 		slenderLight.enabled = false;
 	}
 	
@@ -94,7 +96,7 @@ public class Follow : MonoBehaviour
 
 			if(distance < 15)
 			{
-				agent.speed = 4;
+				agent.speed = 2;
 				anim.SetBool("CloseToPlayer", true);
 			}
 			else
@@ -105,7 +107,9 @@ public class Follow : MonoBehaviour
 
 			if(distance < 1.5f)
 			{
-				Application.LoadLevel("MainMenu");
+				canChase = false;
+				endScript.gameOver = true;
+				//Application.LoadLevel("MainMenu");
 			}
 			agent.destination = target.position;
 		}
@@ -125,7 +129,7 @@ public class Follow : MonoBehaviour
 					anim.SetBool("ChasingPlayer", true);
 					anim.SetBool("CloseToPlayer", true);
 
-					slenderLight.enabled = true;
+					//slenderLight.enabled = true;
 
 					StartCoroutine(GetDestination());
 				}
@@ -139,7 +143,7 @@ public class Follow : MonoBehaviour
 					transform.position = startPosition.position;
 					agent.speed = 1;
 					StartCoroutine(SetAnimBackToStart());
-					slenderLight.enabled = false;
+					//slenderLight.enabled = false;
 					forestRun = false;
 					forestTrigger = false;
 				}
