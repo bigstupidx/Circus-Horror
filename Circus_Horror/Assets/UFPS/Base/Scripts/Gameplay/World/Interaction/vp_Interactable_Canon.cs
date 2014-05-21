@@ -34,6 +34,8 @@ public class vp_Interactable_Canon : vp_Interactable
 
 	string message;
 
+	public GameObject canonCollider;
+
 	protected override void Start()
 	{
 		canonballScript = GameObject.Find("CanonBall").GetComponent<CanonBall>();
@@ -52,7 +54,7 @@ public class vp_Interactable_Canon : vp_Interactable
 		if(gotCanonball && gotKeg && gotFuse)
 		{
 			interacting = true;
-			gameObject.collider.enabled = false;
+			canonCollider.collider.enabled = false;
 			canonballScript.Shoot();
 		}
 		else

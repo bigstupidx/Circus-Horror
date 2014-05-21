@@ -11,11 +11,17 @@ public class Player : MonoBehaviour
 	public float maxTimeToNextImage = 15;
 
 	public float maxTimeUntilDark = 90;
+
+	protected vp_FPPlayerEventHandler m_Player;
 	//float maxMusicVolume = 0.4f;
 
 	//bool fadeIn = false;
 	//bool fadeOut = false;
 	bool showImage = false;
+
+	bool showObjective = false;
+
+	string objective;
 
 	//int newMusicNr;
 
@@ -42,6 +48,7 @@ public class Player : MonoBehaviour
 		audio.clip = backgroundMusic[0];
 		audio.Play();
 		currentAlpha = blackAlphaStart;
+		objective = "Find the candle";
 	}
 	
 	// Update is called once per frame
@@ -73,6 +80,11 @@ public class Player : MonoBehaviour
 				fadeIn = false;
 			}
 		}*/
+
+		if(Input.GetKeyDown(KeyCode.O))
+		{
+			showObjective = !showObjective;
+		}
 
 		if(candleScript.canShowClownImage)
 		{
@@ -118,8 +130,34 @@ public class Player : MonoBehaviour
 		}
 	}
 
+	void OnEnable()
+	{
+		
+		// allow this monobehaviour to talk to the player event handler
+		if (m_Player != null)
+			m_Player.Register(this);
+		
+	}
+	
+	
+	/// <summary>
+	/// unregisters this component from the event handler (if any)
+	/// </summary>
+	void OnDisable()
+	{
+		
+		// unregister this monobehaviour from the player event handler
+		if (m_Player != null)
+			m_Player.Unregister(this);
+		
+	}
+
 	void OnGUI ()
 	{
+		if(showObjective)
+		{
+			GUI.Label(new Rect(20,20, 200, 60), objective);
+		}
 		GUI.color = new Color(1.0f, 1.0f, 1.0f, currentAlpha);
 		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), black);
 
