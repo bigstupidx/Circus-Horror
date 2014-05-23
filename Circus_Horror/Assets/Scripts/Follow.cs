@@ -165,7 +165,7 @@ public class Follow : MonoBehaviour
 					if(secondArea)
 					{
 						int randomNr = Random.Range(0, secondIdleTargets.Length);
-						agent.destination = idleTargets[randomNr].position;
+						agent.destination = secondIdleTargets[randomNr].position;
 					}
 					else
 					{
@@ -190,7 +190,9 @@ public class Follow : MonoBehaviour
 				{
 					if(!startedSecondArea)
 					{
+						anim.SetBool("ChasingPlayer", false);
 						startedSecondArea = true;
+						canChase = true;
 						agent.enabled = false;
 						transform.position = secondSpawn.position;
 						startTimer = 0;

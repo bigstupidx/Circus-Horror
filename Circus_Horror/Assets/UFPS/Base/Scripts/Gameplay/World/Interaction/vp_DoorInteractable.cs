@@ -33,6 +33,8 @@ public class vp_DoorInteractable : vp_Interactable
 	[System.NonSerialized]
 	public bool cabinDoorUnlocked = true;
 
+	public bool endDoor = false;
+
 	bool doorOpen = false;
 	bool doorIsMoving = false;
 	public bool unlocked = true;
@@ -152,6 +154,10 @@ public class vp_DoorInteractable : vp_Interactable
 		if (m_Player == null)
 			m_Player = GameObject.FindObjectOfType(typeof(vp_FPPlayerEventHandler)) as vp_FPPlayerEventHandler;
 
+		if(endDoor)
+		{
+			return;
+		}
 		if(!doorOpen && !doorIsMoving && unlocked && cabinDoorUnlocked)
 		{
 			doorOpen = true;

@@ -16,6 +16,8 @@ public class StaminaRun : MonoBehaviour
     private vp_FPPlayerEventHandler Player;
     private float availableRunTime;
 
+	VoiceScript voiceScript;
+
     protected virtual void Awake()
     {
 
@@ -23,6 +25,7 @@ public class StaminaRun : MonoBehaviour
 		Player = GetComponent<vp_FPPlayerEventHandler>();
         //Player = GameObject.FindObjectOfType(typeof(vp_FPPlayerEventHandler)) as vp_FPPlayerEventHandler;
         availableRunTime = RunningTime;
+		voiceScript = GameObject.Find("Candle").GetComponent<VoiceScript>();
 
     }
 
@@ -66,6 +69,7 @@ public class StaminaRun : MonoBehaviour
         {
             Player.Run.TryStop();
             availableRunTime = 0;
+			voiceScript.PlayBreathing();
         }
     }
 

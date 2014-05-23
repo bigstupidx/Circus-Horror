@@ -75,6 +75,7 @@
      <Compile Include="Assets\Scripts\SoundTrigger.cs" />
      <Compile Include="Assets\Scripts\StaminaRun.cs" />
      <Compile Include="Assets\Scripts\TorchScript.cs" />
+     <Compile Include="Assets\Scripts\VoiceScript.cs" />
      <Compile Include="Assets\Scripts\iTween\iTween.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\ComponentSystem\vp_Component.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\ComponentSystem\vp_ComponentPreset.cs" />
