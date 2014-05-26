@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_4;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_1;UNITY_4_3;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +52,44 @@
      <Compile Include="Assets\6by7\ProGrids\Classes\pg_Util.cs" />
      <Compile Include="Assets\BIG_Environment_Pack\Atmo_System\AtmoXfade.cs" />
      <Compile Include="Assets\BIG_Environment_Pack\FX\Fire\Fire\FlickerLight.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\ExampleScenes\ExampleScene\Scripts\MA_Bootstrapper.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\ExampleScenes\ExampleScene\Scripts\MA_DestroyFinishedParticle.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\ExampleScenes\ExampleScene\Scripts\MA_EnemyOne.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\ExampleScenes\ExampleScene\Scripts\MA_EnemySpawner.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\ExampleScenes\ExampleScene\Scripts\MA_GameScene.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\ExampleScenes\ExampleScene\Scripts\MA_Laser.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\ExampleScenes\ExampleScene\Scripts\MA_PlayerControl.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\ExampleScenes\ExampleScene\Scripts\MA_PlayerSpawnerControl.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\ExampleScenes\ExampleScene\Scripts\MA_SampleICustomEventReceiver.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\ExampleScenes\ExampleScene\Scripts\MA_TestUI.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Events\ButtonClicker.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Events\EventCalcSounds.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Events\EventSounds.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\ResultObjects\PlaySoundResult.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Settings\AudioEvent.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Settings\AudioEventGroup.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Settings\BusFadeInfo.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Settings\CustomEvent.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Settings\DuckGroupInfo.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Settings\DynamicGroupVariation.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Settings\DynamicSoundGroup.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Settings\GroupBus.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Settings\GroupFadeInfo.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Settings\ICustomEventReceiver.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Settings\MasterAudioGroup.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Settings\MusicSetting.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Settings\SoundGroupAttribute.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Settings\SoundGroupVariation.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Singleton\AudioPrioritizer.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Singleton\AudioResourceOptimizer.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Singleton\MasterAudio.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Utility\AudioUpdater.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Utility\AudioUtil.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Utility\CoroutineHelper.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Utility\DelayBetweenSongs.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Utility\DynamicSoundGroupCreator.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Utility\PlaylistController.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Utility\UtilStrings.cs" />
      <Compile Include="Assets\ProCore\QuickBrush\QuickBrushClasses\qb_Group.cs" />
      <Compile Include="Assets\ProCore\QuickBrush\QuickBrushClasses\qb_Object.cs" />
      <Compile Include="Assets\ProCore\QuickBrush\QuickBrushClasses\qb_ObjectContainer.cs" />
@@ -273,6 +311,7 @@
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\DepthOfField34.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ModernCameraCrouch.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Camera\CameraDead.txt" />
+     <None Include="Assets\DarkTonic\MasterAudio\ReleaseNotes.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\MobileBlur.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SSAOShader.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ConvertDepth.shader" />
@@ -398,13 +437,13 @@
      <None Include="Assets\6by7\ProBuilder\Credits.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Controller\ControllerDefault.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendForBloom.shader" />
- <Reference Include="Assembly-UnityScript-firstpass">
+ <Reference Include="Library\ScriptAssemblies\Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
- <Reference Include="ProBuilderCore">
+ <Reference Include="Assets\6by7\ProBuilder\Classes\ProBuilderCore">
  <HintPath>Assets\6by7\ProBuilder\Classes\ProBuilderCore.dll</HintPath>
  </Reference>
- <Reference Include="SixBySeven">
+ <Reference Include="Assets\6by7\Shared\Code\SixBySeven">
  <HintPath>Assets\6by7\Shared\Code\SixBySeven.dll</HintPath>
  </Reference>
   </ItemGroup>

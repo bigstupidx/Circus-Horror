@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 96497c6ddb30a8a48887988e6002192a
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 15
   fileIDToRecycleName:
     100000: Sweet_Stall
     100002: //RootNode
@@ -72,5 +72,4 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
-  additionalBone: 0
   userData: 
