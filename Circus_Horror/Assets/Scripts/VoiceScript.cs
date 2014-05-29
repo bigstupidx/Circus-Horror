@@ -36,4 +36,10 @@ public class VoiceScript : MonoBehaviour
 		int soundNumber = Random.Range(0, blowOut.Length);
 		audio.PlayOneShot(blowOut[soundNumber]);
 	}
+
+	public void PlayFile (string fileName)
+	{
+		AudioClip clipToPlay = Resources.Load(fileName) as AudioClip;
+		audio.PlayOneShot(clipToPlay);
+	}
 }

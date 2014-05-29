@@ -81,7 +81,7 @@ public class vp_FootstepManager : MonoBehaviour
 		m_Camera = transform.root.GetComponentInChildren<vp_FPCamera>();
 		m_Controller = transform.root.GetComponentInChildren<vp_FPController>();
 		m_Audio = gameObject.AddComponent<AudioSource>(); // add a new audio source for this class to use
-		
+		m_Audio.volume = 0.2f;
 	}
 	
 	

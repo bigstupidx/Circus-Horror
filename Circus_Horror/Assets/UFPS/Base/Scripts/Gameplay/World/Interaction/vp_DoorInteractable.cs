@@ -66,7 +66,7 @@ public class vp_DoorInteractable : vp_Interactable
 		
 		if(AudioSource == null)
 			AudioSource = audio == null ? gameObject.AddComponent<AudioSource>() : audio;
-		
+		AudioSource.volume = 0.1f;
 	}
 	
 	

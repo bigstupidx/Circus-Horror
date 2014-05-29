@@ -23,6 +23,7 @@ public class CandleScript : MonoBehaviour
 	Follow followScript;
 	Player playerScript;
 	vp_DoorInteractable doorScript;
+	VoiceScript voiceScript;
 
 	void Awake ()
 	{
@@ -35,6 +36,7 @@ public class CandleScript : MonoBehaviour
 		followScript = GameObject.Find("SlenderMan").GetComponent<Follow>();
 		playerScript = GameObject.Find("PlayerCamera").GetComponent<Player>();
 		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
+		voiceScript = GameObject.Find("Candle").GetComponent<VoiceScript>();
 		iTween.ScaleTo(candleBottom, iTween.Hash("z", 1.2, "time", torchTime, "easetype", "linear"));
 	}
 	
@@ -89,6 +91,7 @@ public class CandleScript : MonoBehaviour
 	void blowCandleOut ()
 	{
 		playerScript.changeMusic(1);
+		voiceScript.PlayBlowOut();
 		candleLight.enabled = false;
 		candleParticles.enableEmission = false;
 		canShowClownImage = true;
