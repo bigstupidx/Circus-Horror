@@ -39,7 +39,13 @@ public class VoiceScript : MonoBehaviour
 
 	public void PlayFile (string fileName)
 	{
+		audio.Stop();
 		AudioClip clipToPlay = Resources.Load(fileName) as AudioClip;
 		audio.PlayOneShot(clipToPlay);
+	}
+
+	public void StopAudio ()
+	{
+		audio.Stop();
 	}
 }

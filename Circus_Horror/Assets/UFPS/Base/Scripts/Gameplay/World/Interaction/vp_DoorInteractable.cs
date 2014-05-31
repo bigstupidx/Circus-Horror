@@ -45,13 +45,15 @@ public class vp_DoorInteractable : vp_Interactable
 	vp_DoorInteractable doorScript;
 	Player playerScript;
 	CandleScript candleScript;
+	SlenderVoices slenderVoiceScript;
 
 	protected override void Start()
 	{
 		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
 		doorScript = GameObject.Find("FirstDoorTrigger").GetComponent<vp_DoorInteractable>();
 		playerScript = GameObject.Find("PlayerCamera").GetComponent<Player>();
-		
+		slenderVoiceScript = GameObject.Find("SlenderMan").GetComponent<SlenderVoices>();
+
 		if(canBeLocked)
 		{
 			unlocked = false;
@@ -183,6 +185,7 @@ public class vp_DoorInteractable : vp_Interactable
 			m_Player.HUDText.Send("You need the key to unlock this door");
 			if(!slenderTriggered)
 			{
+				StartCoroutine(GetOutVoice());
 				doorScript.CloseDoors ();
 				slenderTriggered = true;
 				Destroy(mazeBarrier);
@@ -233,6 +236,12 @@ public class vp_DoorInteractable : vp_Interactable
 		candleScript = GameObject.Find("Arm").GetComponent<CandleScript>();
 		candleScript.CandleTrigger();
 		m_Player.HUDText.Send("The dark is scary, you can re-lite the candle at a fire");
+	}
+
+	IEnumerator GetOutVoice ()
+	{
+		yield return new WaitForSeconds(0.5f);
+		slenderVoiceScript.PlayFile("Howdidyougetout2");
 	}
 
 }

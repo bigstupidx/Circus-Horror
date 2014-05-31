@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
 	public float minTimeToNextImage = 3;
 	public float maxTimeToNextImage = 15;
 
+	public float minTimeToNextVoice = 8;
+	public float maxTimeToNextVoice = 16;
+
 	public float maxTimeUntilDark = 90;
 
 	protected vp_FPPlayerEventHandler m_Player;
@@ -28,6 +31,9 @@ public class Player : MonoBehaviour
 	float imageTimer = 0;
 	float timeToNextImage;
 
+	float scaredTimer = 0;
+	float timeToNextScaredVoice;
+
 	bool startedToBlackout = false;
 	float blackAlphaStart = 0.0f;
 	float currentAlpha;
@@ -36,6 +42,8 @@ public class Player : MonoBehaviour
 	vp_DoorInteractable doorScript;
 	EndCameraScript endScript;
 	Follow followScritp;
+	VoiceScript voiceScript;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -43,7 +51,11 @@ public class Player : MonoBehaviour
 		doorScript = GameObject.Find("CabinDoorTrigger").GetComponent<vp_DoorInteractable>();
 		endScript = GameObject.Find("EndCamera").GetComponent<EndCameraScript>();
 		followScritp = GameObject.Find("SlenderMan").GetComponent<Follow>();
+		voiceScript = GameObject.Find("Candle").GetComponent<VoiceScript>();
+
 		timeToNextImage = Random.Range(minTimeToNextImage, maxTimeToNextImage);
+		timeToNextScaredVoice = Random.Range(minTimeToNextVoice, maxTimeToNextVoice);
+
 		audio.loop = true;
 		audio.clip = backgroundMusic[0];
 		audio.Play();
@@ -54,32 +66,7 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		/*if(fadeOut)
-		{
-			if(audio.volume > 0)
-			{
-				audio.volume -= 0.2f * Time.deltaTime;
-			}
-			else
-			{
-				audio.Stop();
-				audio.clip = backgroundMusic[newMusicNr];
-				audio.Play();
-				fadeOut = false;
-				fadeIn = true;
-			}
-		}
-		if(fadeIn)
-		{
-			if( audio.volume < maxMusicVolume)
-			{
-				audio.volume += 0.2f * Time.deltaTime;
-			}
-			else
-			{
-				fadeIn = false;
-			}
-		}*/
+
 
 		if(Input.GetKeyDown(KeyCode.O))
 		{
@@ -105,6 +92,16 @@ public class Player : MonoBehaviour
 				StartCoroutine(ShowImage());
 			}
 
+			if(scaredTimer < timeToNextScaredVoice)
+			{
+				scaredTimer += Time.deltaTime;
+			}
+			else
+			{
+				scaredTimer = 0;
+				timeToNextScaredVoice = Random.Range(minTimeToNextVoice, maxTimeToNextVoice);
+				voiceScript.PlayDarkness();
+			}
 
 		}
 		else
@@ -120,12 +117,14 @@ public class Player : MonoBehaviour
 
 	public void changeMusic (int musicNr)
 	{
-		//newMusicNr = musicNr;
-
 		if(audio.isPlaying)
 		{
 			audio.Stop();
 			audio.clip = backgroundMusic[musicNr];
+			if(musicNr == 3)
+			{
+				audio.volume -= 0.1f;
+			}
 			audio.Play();
 		}
 	}
@@ -184,7 +183,6 @@ public class Player : MonoBehaviour
 	{
 		followScritp.canChase = false;
 		endScript.gameOver = true;
-		//Application.LoadLevel("MainMenu");
 	}
 
 	void OnTriggerEnter (Collider other)

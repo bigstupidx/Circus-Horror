@@ -24,6 +24,7 @@ public class CandleScript : MonoBehaviour
 	Player playerScript;
 	vp_DoorInteractable doorScript;
 	VoiceScript voiceScript;
+	SlenderVoices slenderVoiceScript;
 
 	void Awake ()
 	{
@@ -37,6 +38,8 @@ public class CandleScript : MonoBehaviour
 		playerScript = GameObject.Find("PlayerCamera").GetComponent<Player>();
 		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
 		voiceScript = GameObject.Find("Candle").GetComponent<VoiceScript>();
+		slenderVoiceScript = GameObject.Find("SlenderMan").GetComponent<SlenderVoices>();
+
 		iTween.ScaleTo(candleBottom, iTween.Hash("z", 1.2, "time", torchTime, "easetype", "linear"));
 	}
 	
@@ -67,7 +70,7 @@ public class CandleScript : MonoBehaviour
 			{
 				playerScript.changeMusic(0);
 			}
-
+			voiceScript.StopAudio();
 			candleParticles.simulationSpace = ParticleSystemSimulationSpace.Local;
 			iTween.Resume(candleBottom);
 			followScript.canChase = true;
@@ -92,6 +95,7 @@ public class CandleScript : MonoBehaviour
 	{
 		playerScript.changeMusic(1);
 		voiceScript.PlayBlowOut();
+		StartCoroutine(WaitForSlenderSound());
 		candleLight.enabled = false;
 		candleParticles.enableEmission = false;
 		canShowClownImage = true;
@@ -134,5 +138,11 @@ public class CandleScript : MonoBehaviour
 		{
 			nearLightSource = false;
 		}
+	}
+
+	IEnumerator WaitForSlenderSound ()
+	{
+		yield return new WaitForSeconds(1);
+		slenderVoiceScript.PlayCandleOff();
 	}
 }

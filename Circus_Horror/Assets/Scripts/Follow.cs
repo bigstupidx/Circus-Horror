@@ -34,6 +34,8 @@ public class Follow : MonoBehaviour
 
 	ManagerScript managerScript;
 	EndCameraScript endScript;
+	VoiceScript voiceScript;
+	SlenderVoices slenderVoiceScript;
 
 	bool billyHasPlayed = false;
 	float distance;
@@ -60,6 +62,8 @@ public class Follow : MonoBehaviour
 		anim.SetBool("ChasingPlayer", false);
 		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
 		endScript = GameObject.Find("EndCamera").GetComponent<EndCameraScript>();
+		voiceScript = GameObject.Find("Candle").GetComponent<VoiceScript>();
+		slenderVoiceScript = GetComponent<SlenderVoices>();
 		slenderLight.enabled = false;
 	}
 	
@@ -78,15 +82,16 @@ public class Follow : MonoBehaviour
 				}
 				else
 				{
+
 					timer = 0;
-					int randomNumber = Random.Range(0, sounds.Length -1);
-					audio.PlayOneShot(sounds[randomNumber]);
+					slenderVoiceScript.PlayTeasing();
+					timeUntilSoundPlays = Random.Range(10, 30);
 				}
 				
 				if(distance < soundDistance && !billyHasPlayed)
 				{
 					billyHasPlayed = true;
-					audio.PlayOneShot(sounds[3]);
+					slenderVoiceScript.PlayFound();
 				}
 				else if(distance > distanceForSoundReset)
 				{
@@ -100,7 +105,7 @@ public class Follow : MonoBehaviour
 				soundIsPlaying = false;
 			}
 
-			if(distance < 15)
+			if(distance < 10)
 			{
 				agent.speed = 2;
 				anim.SetBool("CloseToPlayer", true);
@@ -115,7 +120,7 @@ public class Follow : MonoBehaviour
 			{
 				canChase = false;
 				endScript.gameOver = true;
-				//Application.LoadLevel("MainMenu");
+				voiceScript.PlayFile("Scream");
 			}
 			agent.destination = target.position;
 		}
@@ -231,6 +236,4 @@ public class Follow : MonoBehaviour
 		anim.SetBool("ChasingPlayer", false);
 		agent.speed = 1;
 	}
-
-
 }

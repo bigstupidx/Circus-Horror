@@ -110,6 +110,7 @@
      <Compile Include="Assets\Scripts\RotatePickup.cs" />
      <Compile Include="Assets\Scripts\SecondDoorTrigger.cs" />
      <Compile Include="Assets\Scripts\SecondSlenderTrigger.cs" />
+     <Compile Include="Assets\Scripts\SlenderVoices.cs" />
      <Compile Include="Assets\Scripts\SoundTrigger.cs" />
      <Compile Include="Assets\Scripts\StaminaRun.cs" />
      <Compile Include="Assets\Scripts\StartControl.cs" />
