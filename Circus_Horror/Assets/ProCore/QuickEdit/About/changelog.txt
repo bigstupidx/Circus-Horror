@@ -1,0 +1,6 @@
+-- QuickEdit -
+
+edit: Recalculate collider dimensions on exiting edit mode. Fixed #59
+edit: Use a unique asset path when copying mesh data to the project. Fixed #63
+edit: Use a TRS class to store position, rotation, and scale of objects so that vertices are updated on all possible changes.  We get rotation support for free with this change - scale remains intransigent.
+edit: Remove no longer necessary VertHandlePrefab.  Don't use an if switch in OnDrawGizmos, instead, use the directives specifically designed for designating gizmos on selection / pickables.
