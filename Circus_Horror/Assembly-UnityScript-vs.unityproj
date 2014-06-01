@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_4;UNITY_4_3;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_1;UNITY_4_3;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -51,11 +51,15 @@
      <Compile Include="Assets\CrowFlock\Scripts\LandingButtons.js" />
      <Compile Include="Assets\CrowFlock\Scripts\LandingSpot.js" />
      <Compile Include="Assets\CrowFlock\Scripts\LandingSpotController.js" />
+     <Compile Include="Assets\Decal System Demos\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" />
+     <Compile Include="Assets\Decal System Demos\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js" />
+     <Compile Include="Assets\ProCore\QuickEdit\Scripts\QuickEdit_VertHandleScript.js" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Shooter\ShooterPistolSlideFast.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Camera\CameraClimb.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Shooter\ShooterMachinegunZoom.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />
+     <None Include="Assets\Plugins\Decal System\Shader\Decal-Alpha-Diffuse.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\SystemOFFShooter.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Controller\ControllerDead.txt" />
@@ -67,6 +71,8 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\CowboyWeaponZoom.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MaceWeaponSwingRight.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ModernCameraZoom.txt" />
+     <None Include="Assets\ProCore\QuickEdit\About\pc_AboutEntry_QuickEdit.txt" />
+     <None Include="Assets\Plugins\Decal System\DecalSystem.Runtime.xml" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ShowAlphaChannel.shader" />
      <None Include="Assets\UFPS\ArmPositions\3rdTry.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\PerspOldWeapon.txt" />
@@ -74,6 +80,7 @@
      <None Include="Assets\6by7\ProBuilder\changelog.txt" />
      <None Include="Assets\6by7\ProBuilder\Shader\VertexBillboard.shader" />
      <None Include="Assets\6by7\ProBuilder\Shader\DiffuseVertexColor.shader" />
+     <None Include="Assets\Plugins\Decal System\Shader\Decal-Alpha-VertexLit.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MafiaCamera.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Controller\ControllerFreeze.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\StompingCamera.txt" />
@@ -81,6 +88,7 @@
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SunShaftsComposite.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MouseRawUnityCamera.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\CowboyCamera.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Mobile\Mobile-Decal-AlphaTest-Bumped.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionCurves.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ScreenSpaceAmbientObscurance.shader" />
      <None Include="Assets\UFPS\ArmPositions\newTorchPosition.txt" />
@@ -97,6 +105,7 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponPistolReload2.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Camera\CameraReload.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\SmackController.txt" />
+     <None Include="Assets\Plugins\Decal System\Readme.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Camera\CameraFreeze.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MaceWeaponPullUpLeft.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\VignetteShader.shader" />
@@ -107,6 +116,8 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\FreezeController.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MaceWeaponSwingDown.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\CowboyController.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Colored\Experimental Shadow Receiver\Decal-Alpha-Parallax-Diffuse-Colored-Receive-Shadow.shader" />
+     <None Include="Assets\Plugins\Decal System\Shader\Mobile\Colored\Mobile-Decal-Alpha-TargetBumped-Colored.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponMachinegunCrouch.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\MotionBlur.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Camera\CameraDefault.txt" />
@@ -146,25 +157,33 @@
      <None Include="Assets\UFPS\Base\Content\Art\Weapons\Source\BasicArms\BasicArmsReadMe.txt" />
      <None Include="Assets\Models\FBX Circus Props\Textures\Textures\Textures.txt" />
      <None Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Shaders\FX-SimpleWater4.shader" />
+     <None Include="Assets\Plugins\Decal System\Shader\Decal-AlphaTest-VertexLit.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\DrunkWeapon.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MaceWeaponPullRight.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\frag_ao.cginc" />
+     <None Include="Assets\ProCore\QuickEdit\About\changelog.txt" />
      <None Include="Assets\6by7\ProBuilder\VersionInfo.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponPistolSlideFast.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ModernShooter.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponRevolver.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Decal-AlphaTest-Diffuse.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ImmobileCamera.txt" />
      <None Include="Assets\iTweenEditor\README.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MaceCamera.txt" />
+     <None Include="Assets\ProCore\Shared\About\README.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ImmobileController.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Mobile\Mobile-Decal-Alpha-Diffuse.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MaceWeaponSwingLeft.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MechController.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\DrunkController.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Colored\Decal-Alpha-Diffuse-Colored.shader" />
+     <None Include="Assets\Plugins\Decal System\Shader\Colored\Experimental Shadow Receiver\Decal-Alpha-Bumped-Colored-Receive-Shadow.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Shooter\ShooterPistol.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\DrunkCamera.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponMachinegunReload.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ArtilleryCamera.txt" />
      <None Include="Assets\Textures\Textures.txt" />
+     <None Include="Assets\Plugins\Decal System\Release Notes.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponPistolCrouch.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MechWeapon.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\DepthOfField34.shader" />
@@ -185,12 +204,17 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MaceWeaponPullDown.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GlowEffectDownsample.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\CreaseApply.shader" />
+     <None Include="Assets\Plugins\Decal System\Shader\Colored\Experimental Shadow Receiver\Decal-Alpha-Diffuse-Colored-Receive-Shadow.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\OldSchoolWeapon.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Colored\Decal-AlphaTest-Bumped-Colored.shader" />
+     <None Include="Assets\Plugins\Decal System\Shader\Decal-Alpha-TargetBumped.shader" />
+     <None Include="Assets\Plugins\Decal System\Shader\Colored\Experimental Shadow Receiver\Decal-Alpha-TargetBumped-Colored-Receive-Shadow.shader" />
      <None Include="Assets\6by7\ProBuilder\Shader\UnlitColor.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ControllerMegaSpeed.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ChromaticAberrationShader.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MaceWeaponSwingUp.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ImmobileWeapon.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Decal-AlphaTest-Bumped.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponMachinegunRun.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\TurretWeapon.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MaceWeapon.txt" />
@@ -204,17 +228,20 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponMachinegunZoom.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponPistolReload.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Shooter\ShooterRevolver.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Colored\Decal-Alpha-TargetBumped-Colored.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionSelective.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MaceWeaponSwingDownRight.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\Bokeh34.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ModernWeapon.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\PivotChestWeapon.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Mobile\Colored\Mobile-Decal-AlphaTest-Diffuse-Colored.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Controller\ControllerClimb.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MeleeAttackToDownLeft.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\CameraMotionBlurDX11.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Camera\CameraRun.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Camera\CameraZoom.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Mobile\Colored\Mobile-Decal-AlphaTest-TargetBumped-Colored.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\SystemOFFWeaponGlideIn.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\SniperWeapon.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
@@ -222,10 +249,14 @@
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\BlurEffectConeTaps.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\CameraMotionBlur.shader" />
      <None Include="Assets\Standard Assets\Water (Pro Only)\Sources\Shaders\FX-Water.shader" />
+     <None Include="Assets\Plugins\Decal System\Shader\Mobile\Colored\Mobile-Decal-Alpha-Diffuse-Colored.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\DLAA.shader" />
+     <None Include="Assets\Plugins\Decal System\Shader\Colored\Decal-Alpha-Bumped-Colored.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\PerspOldCamera.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Colored\Decal-AlphaTest-TargetBumped-Colored.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseAndGrainDX11.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponGenericSlide.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Mobile\Mobile-Decal-Alpha-Bumped.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableBlur.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\MotionBlurClear.shader" />
@@ -235,6 +266,7 @@
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SepiaToneEffect.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\TwirlEffect.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\VortexEffect.shader" />
+     <None Include="Assets\Plugins\Decal System\Shader\Colored\Decal-Alpha-Parallax-Diffuse-Colored.shader" />
      <None Include="Assets\CrowFlock\Crow Flock - Readme.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Contrast Stretch\Adaptation.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\OldSchoolShooter.txt" />
@@ -253,6 +285,7 @@
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAA2.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\PerspModernWeapon.txt" />
      <None Include="Assets\BIG_Environment_Pack\Readme.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Mobile\Mobile-Decal-AlphaTest-TargetBumped.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponPistolRun.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\PerspModernCamera.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ModernControllerZoom.txt" />
@@ -262,6 +295,8 @@
      <None Include="Assets\6by7\ProBuilder\Shader\UnlitColor-Overlay.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\EdgeDetectNormals.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ModernShooterZoom.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Decal-Alpha-Bumped.shader" />
+     <None Include="Assets\Plugins\Decal System\Shader\Decal-AlphaTest-TargetBumped.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\PrepareSunShaftsBlur.shader" />
      <None Include="Assets\6by7\ProBuilder\Shader\DiffuseVertexColorEmission.shader" />
      <None Include="Assets\CrowFlock\Included Assets\Unluck Software Feather Particles\Feathers - Readme.txt" />
@@ -270,11 +305,14 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Camera\CameraSlide.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MechCamera.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\CowboyShooterZoom.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Colored\Decal-AlphaTest-Diffuse-Colored.shader" />
      <None Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Shaders\WaterInclude.cginc" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\OldSchoolController.txt" />
      <None Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Shaders\FX-Water4.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Shooter\ShooterMachinegunSlideFast.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Mobile\Mobile-Decal-AlphaTest-Diffuse.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\SniperCamera.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Mobile\Colored\Mobile-Decal-Alpha-Bumped-Colored.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SimpleClear.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MouseRawUnityWeapon.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MafiaWeaponCrouch.txt" />
@@ -290,11 +328,13 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\SimpleAIShooter.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\AstronautWeapon.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponRevolverSlideFast.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Mobile\Colored\Mobile-Decal-AlphaTest-Bumped-Colored.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MeleeAttackToDownRight.txt" />
      <None Include="Assets\6by7\ProBuilder\Credits.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Controller\ControllerDefault.txt" />
+     <None Include="Assets\Plugins\Decal System\Shader\Mobile\Mobile-Decal-Alpha-TargetBumped.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendForBloom.shader" />
  <Reference Include="Library\ScriptAssemblies\Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
@@ -304,6 +344,9 @@
  </Reference>
  <Reference Include="Assets\6by7\Shared\Code\SixBySeven">
  <HintPath>Assets\6by7\Shared\Code\SixBySeven.dll</HintPath>
+ </Reference>
+ <Reference Include="Assets\Plugins\Decal System\DecalSystem.Runtime">
+ <HintPath>Assets\Plugins\Decal System\DecalSystem.Runtime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
