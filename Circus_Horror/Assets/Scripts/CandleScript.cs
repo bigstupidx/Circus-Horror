@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class CandleScript : MonoBehaviour 
@@ -12,7 +12,8 @@ public class CandleScript : MonoBehaviour
 
 	[System.NonSerialized]
 	public bool canShowClownImage = false;
-	
+	public bool firstTimeCanleLit = false;
+
 	bool torchOn = true;
 	bool nearLightSource = false;
 	bool blowOutAnim = false;
@@ -37,7 +38,7 @@ public class CandleScript : MonoBehaviour
 		followScript = GameObject.Find("SlenderMan").GetComponent<Follow>();
 		playerScript = GameObject.Find("PlayerCamera").GetComponent<Player>();
 		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
-		voiceScript = GameObject.Find("Candle").GetComponent<VoiceScript>();
+		voiceScript = GameObject.Find("PlayerCamera").GetComponent<VoiceScript>();
 		slenderVoiceScript = GameObject.Find("SlenderMan").GetComponent<SlenderVoices>();
 
 		iTween.ScaleTo(candleBottom, iTween.Hash("z", 1.2, "time", torchTime, "easetype", "linear"));
@@ -70,7 +71,11 @@ public class CandleScript : MonoBehaviour
 			{
 				playerScript.changeMusic(0);
 			}
-			voiceScript.StopAudio();
+			if(!firstTimeCanleLit)
+			{
+				firstTimeCanleLit = true;
+			}
+			voiceScript.StopAudioSource();
 			candleParticles.simulationSpace = ParticleSystemSimulationSpace.Local;
 			iTween.Resume(candleBottom);
 			followScript.canChase = true;
@@ -95,7 +100,10 @@ public class CandleScript : MonoBehaviour
 	{
 		playerScript.changeMusic(1);
 		voiceScript.PlayBlowOut();
-		StartCoroutine(WaitForSlenderSound());
+		if(followScript.chasingStarted)
+		{
+			StartCoroutine(WaitForSlenderSound());
+		}
 		candleLight.enabled = false;
 		candleParticles.enableEmission = false;
 		canShowClownImage = true;

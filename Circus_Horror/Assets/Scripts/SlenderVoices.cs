@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class SlenderVoices : MonoBehaviour 
@@ -45,7 +45,7 @@ public class SlenderVoices : MonoBehaviour
 		audio.PlayOneShot(teasing[soundNumber]);
 	}
 
-	public void StopAudio ()
+	public void StopvoiceSource ()
 	{
 		audio.Stop();
 	}
@@ -53,6 +53,6 @@ public class SlenderVoices : MonoBehaviour
 	IEnumerator ChangeMaxDistance ()
 	{
 		yield return new WaitForSeconds(3);
-		audio.maxDistance = 300;
+		audio.maxDistance = 400;
 	}
 }

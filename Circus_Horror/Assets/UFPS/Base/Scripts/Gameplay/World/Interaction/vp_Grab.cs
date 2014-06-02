@@ -57,7 +57,7 @@ public class vp_Grab : vp_Interactable
 	protected float duration = 0.0f;
 	protected float m_FetchProgress = 0;
 	protected vp_FPInteractManager m_InteractManager = null;	// caches the interaction manager
-	protected AudioSource m_Audio = null;
+	protected AudioSource m_voiceSource = null;
 	protected int m_LastWeaponEquipped = 0;						// used to store the id of our weapon so we can reequip it
 	protected bool m_IsGrabbed = false;
 	protected float m_OriginalPitchDownLimit = 0.0f;			// for restoring camera pitch
@@ -76,12 +76,13 @@ public class vp_Grab : vp_Interactable
 	// timers
 	protected vp_Timer.Handle m_DisableAngleSwayTimer = new vp_Timer.Handle();
 
-
+	CandleScript candleScript;
 	/// <summary>
 	/// 
 	/// </summary>
 	protected override void Start()
 	{
+
 
 		base.Start();
 
@@ -100,7 +101,6 @@ public class vp_Grab : vp_Interactable
 		InteractType = vp_InteractType.Normal;
 
 		m_InteractManager = GameObject.FindObjectOfType(typeof(vp_FPInteractManager)) as vp_FPInteractManager;
-
 	}
 
 
@@ -188,12 +188,12 @@ public class vp_Grab : vp_Interactable
 	{
 
 		// calculate positional sway force
-		m_CurrentSwayForce += m_Player.Velocity.Get() * 0.005f;
+		m_CurrentSwayForce += m_Player.Velocity.Get() * 0.001f;
 		m_CurrentSwayForce.y += m_CurrentFootstepForce;
 		m_CurrentSwayForce += m_Camera.Transform.TransformDirection(new Vector3(
-			m_CurrentMouseMove.x * 0.05f,
+			m_CurrentMouseMove.x * 0.01f,
 			// prevent vertical sway if we hit lower pitch limit
-			(m_Player.Rotation.Get().x > m_Camera.RotationPitchLimit.y) ? m_CurrentMouseMove.y * 0.015f : m_CurrentMouseMove.y * 0.05f,
+			(m_Player.Rotation.Get().x > m_Camera.RotationPitchLimit.y) ? m_CurrentMouseMove.y * 0.005f : m_CurrentMouseMove.y * 0.01f,
 			0.0f));
 
 		// update object position
@@ -293,8 +293,8 @@ public class vp_Grab : vp_Interactable
 		if (m_WeaponHandler == null)
 			m_WeaponHandler = m_Player.GetComponentInChildren<vp_FPWeaponHandler>();
 
-		if (m_Audio == null)
-			m_Audio = m_Player.audio;
+		if (m_voiceSource == null)
+			m_voiceSource = m_Player.audio;
 
 		m_Player.Register(this);
 
@@ -323,9 +323,14 @@ public class vp_Grab : vp_Interactable
 	/// </summary>
 	protected virtual void StartGrab()
 	{
+		candleScript = GameObject.Find("Arm").GetComponent<CandleScript>();
+		if(candleScript != null)
+		{
+			candleScript.CandleTrigger();
+		}
 
 		// play a grab sound
-		vp_Utility.PlayRandomSound(m_Audio, GrabSounds, SoundsPitch);
+		vp_Utility.PlayRandomSound(m_voiceSource, GrabSounds, SoundsPitch);
 
 		// show a HUD text, 
 		if (!string.IsNullOrEmpty(OnGrabText))
@@ -345,7 +350,9 @@ public class vp_Grab : vp_Interactable
 		// our 'OnStop_SetWeapon' callback start the coroutine
 		m_FetchProgress = 0.0f;
 		if (m_LastWeaponEquipped != 0)
+		{
 			m_Player.SetWeapon.TryStart(0);
+		}
 		else if (!m_IsFetching)
 			StartCoroutine("Fetch");
 
@@ -420,7 +427,7 @@ public class vp_Grab : vp_Interactable
 		if (vp_Input.GetButtonDown("Attack"))
 		{
 			
-			vp_Utility.PlayRandomSound(m_Audio, ThrowSounds, SoundsPitch);
+			vp_Utility.PlayRandomSound(m_voiceSource, ThrowSounds, SoundsPitch);
 			if (m_Transform.rigidbody != null)
 			{
 				m_Transform.rigidbody.AddForce(m_Controller.Velocity + m_Player.Forward.Get() * ThrowStrength, ForceMode.Impulse);
@@ -434,7 +441,7 @@ public class vp_Grab : vp_Interactable
 		else	// otherwise perform a normal drop
 		{
 
-			vp_Utility.PlayRandomSound(m_Audio, DropSounds, SoundsPitch);
+			vp_Utility.PlayRandomSound(m_voiceSource, DropSounds, SoundsPitch);
 			if (m_Transform.rigidbody != null)
 				m_Transform.rigidbody.AddForce(m_Controller.Velocity + m_Player.Forward.Get(), ForceMode.Impulse);
 
@@ -569,7 +576,7 @@ public class vp_Grab : vp_Interactable
 			// but before we do - raycast from the contact point and down to see if
 			// it's actually the ground we're colliding with - in which case we don't
 			// do anything
-			if (m_CollisionCount > MaxCollisionCount &&
+			/*if (m_CollisionCount > MaxCollisionCount &&
 				!(Physics.Raycast(col.contacts[0].point + Vector3.up * 0.1f, -Vector3.up, out hit, 0.2f)
 				&& (hit.collider == m_LastExternalCollider)))
 			{
@@ -578,7 +585,7 @@ public class vp_Grab : vp_Interactable
 				m_LastExternalCollider = null;
 				if (m_Player != null)
 					m_Player.Interact.TryStart();
-			}
+			}*/
 		}
 
 	}

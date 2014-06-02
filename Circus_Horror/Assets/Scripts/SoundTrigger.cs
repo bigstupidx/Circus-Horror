@@ -12,6 +12,8 @@ public class SoundTrigger : MonoBehaviour
 	float currentDistance;
 	public float maxDistance = 10;
 
+	public bool playOnce = false;
+
 	void Start ()
 	{
 		player = GameObject.Find("Player").GetComponent<Transform>();
@@ -21,7 +23,7 @@ public class SoundTrigger : MonoBehaviour
 	void Update ()
 	{
 		currentDistance = Vector3.Distance(player.position, _transform.position);
-		if(currentDistance > maxDistance)
+		if(currentDistance > maxDistance && !playOnce)
 		{
 			hasPlayed = false;
 		}

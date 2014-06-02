@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Follow : MonoBehaviour 
@@ -62,7 +62,7 @@ public class Follow : MonoBehaviour
 		anim.SetBool("ChasingPlayer", false);
 		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
 		endScript = GameObject.Find("EndCamera").GetComponent<EndCameraScript>();
-		voiceScript = GameObject.Find("Candle").GetComponent<VoiceScript>();
+		voiceScript = GameObject.Find("PlayerCamera").GetComponent<VoiceScript>();
 		slenderVoiceScript = GetComponent<SlenderVoices>();
 		slenderLight.enabled = false;
 	}
@@ -164,6 +164,9 @@ public class Follow : MonoBehaviour
 
 			if(chasingStarted)
 			{
+				agent.speed = 1;
+				anim.SetBool("CloseToPlayer", false);
+				                     
 				if(needNewPosition)
 				{
 					needNewPosition = false;

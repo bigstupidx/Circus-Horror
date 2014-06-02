@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class VoiceScript : MonoBehaviour 
@@ -7,45 +7,105 @@ public class VoiceScript : MonoBehaviour
 	public AudioClip[] darkness;
 	public AudioClip[] scared;
 	public AudioClip[] blowOut;
+
+	public string motherVoiceSegmentSingle;
+	public string motherVoiceSegmentRepeat;
+
+	public bool repeatVoice = false;
+
+	public float repeatTime = 30;
+	float repeatTimer = 0;
+
+	AudioSource voiceSource;
 	// Use this for initialization
+
+	void Update ()
+	{
+		if(repeatVoice)
+		{
+			if(repeatTimer < repeatTime)
+			{
+				repeatTimer += Time.deltaTime;
+			}
+			else
+			{
+				repeatTimer = 0;
+				PlayMotherVoiceRepeat();
+			}
+		}
+		else
+		{
+			repeatTimer = 0;
+		}
+	}
+
+	void Start ()
+	{
+		AudioSource[] aSource = GetComponents<AudioSource>();
+		voiceSource = aSource[1];
+	}
 
 	public void PlayBreathing ()
 	{
-		audio.Stop();
+		voiceSource.Stop();
 		int soundNumber = Random.Range(0, breathing.Length);
-		audio.PlayOneShot(breathing[soundNumber]);
+		voiceSource.PlayOneShot(breathing[soundNumber]);
 	}
 
 	public void PlayDarkness ()
 	{
-		audio.Stop();
+		voiceSource.Stop();
 		int soundNumber = Random.Range(0, darkness.Length);
-		audio.PlayOneShot(darkness[soundNumber]);
+		voiceSource.PlayOneShot(darkness[soundNumber]);
 	}
 
 	public void PlayScared ()
 	{
-		audio.Stop();
+		voiceSource.Stop();
 		int soundNumber = Random.Range(0, scared.Length);
-		audio.PlayOneShot(scared[soundNumber]);
+		voiceSource.PlayOneShot(scared[soundNumber]);
 	}
 
 	public void PlayBlowOut ()
 	{
-		audio.Stop();
+		voiceSource.Stop();
 		int soundNumber = Random.Range(0, blowOut.Length);
-		audio.PlayOneShot(blowOut[soundNumber]);
+		voiceSource.PlayOneShot(blowOut[soundNumber]);
 	}
 
-	public void PlayFile (string fileName)
+	public void PlayFile (string voice)
 	{
-		audio.Stop();
-		AudioClip clipToPlay = Resources.Load(fileName) as AudioClip;
-		audio.PlayOneShot(clipToPlay);
+		voiceSource.Stop();
+		AudioClip clipToPlay = Resources.Load(voice) as AudioClip;
+		voiceSource.PlayOneShot(clipToPlay);
 	}
 
-	public void StopAudio ()
+	public void PlayMotherVoiceRepeat ()
 	{
-		audio.Stop();
+		if(motherVoiceSegmentRepeat != null)
+		{
+			repeatVoice = true;
+			voiceSource.Stop();
+			AudioClip voiceClip = Resources.Load(motherVoiceSegmentRepeat) as AudioClip;
+			voiceSource.PlayOneShot(voiceClip);
+		}
+
+	}
+
+	public void PlayMotherVoiceSingle ()
+	{
+		if(motherVoiceSegmentSingle != null)
+		{
+			voiceSource.Stop();
+			AudioClip voiceClip = Resources.Load(motherVoiceSegmentSingle) as AudioClip;
+			voiceSource.PlayOneShot(voiceClip);
+		}
+		
+	}
+
+
+	public void StopAudioSource ()
+	{
+		voiceSource.Stop();
 	}
 }

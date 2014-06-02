@@ -4,10 +4,15 @@ using System.Collections;
 public class MainMenu : MonoBehaviour 
 {
 	public Texture background;
+	public MovieTexture movie;
 	// Use this for initialization
 	void Start () 
 	{
-	
+		if(movie != null)
+		{
+			movie.loop = true;
+			movie.Play();
+		}
 	}
 	
 	// Update is called once per frame
@@ -18,7 +23,7 @@ public class MainMenu : MonoBehaviour
 
 	void OnGUI ()
 	{
-		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), background);
+		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), movie);
 		if(GUI.Button(new Rect(Screen.width / 2 - 45, Screen.height * 0.3f, 90, 40), "Play"))
 		{
 			Application.LoadLevel("Level01");

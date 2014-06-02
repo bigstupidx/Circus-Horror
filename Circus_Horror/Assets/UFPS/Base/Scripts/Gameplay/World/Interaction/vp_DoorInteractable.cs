@@ -20,7 +20,7 @@ public class vp_DoorInteractable : vp_Interactable
 	
 	//public GameObject Target = null;
 	public string TargetMessage = "";
-	public AudioSource AudioSource = null;
+	public AudioSource audioSource = null;
 	public Vector2 SwitchPitchRange = new Vector2(1.0f, 1.5f);
 	public List<AudioClip> SwitchSounds = new List<AudioClip>();		// list of sounds to randomly play when switched
 
@@ -46,6 +46,7 @@ public class vp_DoorInteractable : vp_Interactable
 	Player playerScript;
 	CandleScript candleScript;
 	SlenderVoices slenderVoiceScript;
+	VoiceScript voiceScript;
 
 	protected override void Start()
 	{
@@ -53,6 +54,7 @@ public class vp_DoorInteractable : vp_Interactable
 		doorScript = GameObject.Find("FirstDoorTrigger").GetComponent<vp_DoorInteractable>();
 		playerScript = GameObject.Find("PlayerCamera").GetComponent<Player>();
 		slenderVoiceScript = GameObject.Find("SlenderMan").GetComponent<SlenderVoices>();
+		voiceScript = GameObject.Find("PlayerCamera").GetComponent<VoiceScript>();
 
 		if(canBeLocked)
 		{
@@ -66,9 +68,9 @@ public class vp_DoorInteractable : vp_Interactable
 
 		base.Start();
 		
-		if(AudioSource == null)
-			AudioSource = audio == null ? gameObject.AddComponent<AudioSource>() : audio;
-		AudioSource.volume = 0.1f;
+		if(audioSource == null)
+			audioSource = audio == null ? gameObject.AddComponent<AudioSource>() : audio;
+		audioSource.volume = 0.1f;
 	}
 	
 	
@@ -101,7 +103,7 @@ public class vp_DoorInteractable : vp_Interactable
 	public virtual void PlaySound()
 	{
 		
-		if(AudioSource == null)
+		if(audioSource == null)
 			return;
 		
 		if( SwitchSounds.Count == 0 )
@@ -112,8 +114,8 @@ public class vp_DoorInteractable : vp_Interactable
 		if(soundToPlay == null)
 			return;
 		
-		AudioSource.pitch = Random.Range(SwitchPitchRange.x, SwitchPitchRange.y);
-		AudioSource.PlayOneShot( soundToPlay );
+		audioSource.pitch = Random.Range(SwitchPitchRange.x, SwitchPitchRange.y);
+		audioSource.PlayOneShot( soundToPlay );
 		
 	}
 	
@@ -124,13 +126,6 @@ public class vp_DoorInteractable : vp_Interactable
 	/// </summary>
 	protected override void OnTriggerEnter(Collider col)
 	{
-		if(col.tag == "FirstKey")
-		{
-			Debug.Log("door unlocked");
-			unlocked = true;
-			Destroy(col.gameObject);
-		}
-
 		// only do something if the trigger is of type Trigger
 		if (InteractType != vp_InteractType.Trigger)
 			return;
@@ -162,6 +157,7 @@ public class vp_DoorInteractable : vp_Interactable
 		}
 		if(!doorOpen && !doorIsMoving && unlocked && cabinDoorUnlocked)
 		{
+			this.collider.enabled = false;
 			doorOpen = true;
 			doorIsMoving = true;
 			if(leftDoor != null)
@@ -178,11 +174,15 @@ public class vp_DoorInteractable : vp_Interactable
 		if(cabinDoor && !cabinDoorUnlocked)
 		{
 			m_Player.HUDText.Send("It's too dark outside. You need to get a candle");
+
+			voiceScript.motherVoiceSegmentSingle = "Get the candle 2";
+			voiceScript.PlayMotherVoiceSingle();
 		}
 
 		if(!unlocked)
 		{
 			m_Player.HUDText.Send("You need the key to unlock this door");
+			StartCoroutine(KeyVoice());
 			if(!slenderTriggered)
 			{
 				StartCoroutine(GetOutVoice());
@@ -192,22 +192,6 @@ public class vp_DoorInteractable : vp_Interactable
 				managerScript.slenderActive = true;
 			}
 		}
-		/*else
-			{
-
-				if(leftDoor)
-				{
-					Debug.Log("Closed door left Door");
-					iTween.RotateBy(gameObject, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
-					iTween.RotateBy(otherDoor, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear"));
-				}
-				else
-				{
-					Debug.Log("Closed door right Door");
-					iTween.RotateBy(gameObject, iTween.Hash("y", -0.25, "time", 1, "easetype", "linear", "oncomplete", "FinishedOpening"));
-					iTween.RotateBy(otherDoor, iTween.Hash("y", 0.25, "time", 1, "easetype", "linear"));
-				}
-			}*/
 	}
 	
 	void FinishedOpening ()
@@ -236,12 +220,35 @@ public class vp_DoorInteractable : vp_Interactable
 		candleScript = GameObject.Find("Arm").GetComponent<CandleScript>();
 		candleScript.CandleTrigger();
 		m_Player.HUDText.Send("The dark is scary, you can re-lite the candle at a fire");
+		StartCoroutine(CandleVoice());
 	}
 
 	IEnumerator GetOutVoice ()
 	{
 		yield return new WaitForSeconds(0.5f);
 		slenderVoiceScript.PlayFile("Howdidyougetout2");
+	}
+
+	IEnumerator CandleVoice()
+	{
+		yield return new WaitForSeconds(3);
+		if(candleScript.canShowClownImage)
+		{
+			voiceScript.motherVoiceSegmentSingle = "Light the candle with 1";
+			voiceScript.PlayMotherVoiceSingle();
+		}
+
+	}
+
+	IEnumerator KeyVoice ()
+	{
+		yield return new WaitForSeconds(4);
+		voiceScript.motherVoiceSegmentRepeat = "Find the key 2";
+		voiceScript.PlayMotherVoiceRepeat();
+		yield return new WaitForSeconds(10);
+		voiceScript.motherVoiceSegmentSingle = "He can see the candle 2";
+		voiceScript.PlayMotherVoiceSingle();
+		m_Player.HUDText.Send("Press F to put the candle out");
 	}
 
 }

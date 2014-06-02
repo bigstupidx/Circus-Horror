@@ -25,7 +25,7 @@ public class StaminaRun : MonoBehaviour
 		Player = GetComponent<vp_FPPlayerEventHandler>();
         //Player = GameObject.FindObjectOfType(typeof(vp_FPPlayerEventHandler)) as vp_FPPlayerEventHandler;
         availableRunTime = RunningTime;
-		voiceScript = GameObject.Find("Candle").GetComponent<VoiceScript>();
+		voiceScript = GameObject.Find("PlayerCamera").GetComponent<VoiceScript>();
 
     }
 

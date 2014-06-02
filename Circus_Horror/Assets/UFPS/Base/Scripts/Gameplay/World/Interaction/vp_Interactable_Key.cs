@@ -29,10 +29,12 @@ public class vp_Interactable_Key : vp_Interactable
 	public GameObject key;
 
 	vp_DoorInteractable doorScript;
+	VoiceScript voiceScript;
 
 	protected override void Start()
 	{
 		doorScript = GameObject.Find("SecondDoorTrigger").GetComponent<vp_DoorInteractable>();
+		voiceScript = GameObject.Find("PlayerCamera").GetComponent<VoiceScript>();
 	}
 	
 	
@@ -49,6 +51,7 @@ public class vp_Interactable_Key : vp_Interactable
 			doorScript.unlocked = true;
 			
 			m_Player.HUDText.Send("You got the key");
+			voiceScript.repeatVoice = false;
 			Destroy(key);
 			interacting =  true; // if not overridden, just prevent interaction
 		}

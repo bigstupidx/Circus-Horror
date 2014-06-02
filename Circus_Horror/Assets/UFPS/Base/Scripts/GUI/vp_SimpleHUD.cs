@@ -98,7 +98,7 @@ public class vp_SimpleHUD : MonoBehaviour
 		if (!string.IsNullOrEmpty(m_PickupMessage) && m_MessageColor.a > 0.01f)
 		{
 
-			m_MessageColor = Color.Lerp(m_MessageColor, m_InvisibleColor, Time.deltaTime * 0.2f);
+			m_MessageColor = Color.Lerp(m_MessageColor, m_InvisibleColor, Time.deltaTime * 0.1f);
 			GUI.color = m_MessageColor;
 			GUI.Box(new Rect(200, 150, Screen.width - 400, Screen.height - 400), m_PickupMessage, MessageStyle);
 			GUI.color = Color.white;

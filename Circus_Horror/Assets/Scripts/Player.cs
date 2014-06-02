@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Player : MonoBehaviour 
@@ -16,10 +16,8 @@ public class Player : MonoBehaviour
 	public float maxTimeUntilDark = 90;
 
 	protected vp_FPPlayerEventHandler m_Player;
-	//float maxMusicVolume = 0.4f;
+	vp_FPController m_Controller;
 
-	//bool fadeIn = false;
-	//bool fadeOut = false;
 	bool showImage = false;
 
 	bool showObjective = false;
@@ -44,23 +42,35 @@ public class Player : MonoBehaviour
 	Follow followScritp;
 	VoiceScript voiceScript;
 
+	AudioSource musicSource;
+
 	// Use this for initialization
 	void Start () 
 	{
+		AudioSource[] aSource = GetComponents<AudioSource>();
+		musicSource = aSource[0];
 		candleScript = GameObject.Find("Arm").GetComponent<CandleScript>();
 		doorScript = GameObject.Find("CabinDoorTrigger").GetComponent<vp_DoorInteractable>();
 		endScript = GameObject.Find("EndCamera").GetComponent<EndCameraScript>();
 		followScritp = GameObject.Find("SlenderMan").GetComponent<Follow>();
-		voiceScript = GameObject.Find("Candle").GetComponent<VoiceScript>();
+		voiceScript = GameObject.Find("PlayerCamera").GetComponent<VoiceScript>();
 
 		timeToNextImage = Random.Range(minTimeToNextImage, maxTimeToNextImage);
 		timeToNextScaredVoice = Random.Range(minTimeToNextVoice, maxTimeToNextVoice);
 
-		audio.loop = true;
-		audio.clip = backgroundMusic[0];
-		audio.Play();
+		m_Player = GetComponent<vp_FPPlayerEventHandler>();
+		m_Controller = GetComponent<vp_FPController>();
+
+
 		currentAlpha = blackAlphaStart;
 		objective = "Find the candle";
+	}
+
+	public void StartMusic ()
+	{
+		musicSource.loop = true;
+		musicSource.clip = backgroundMusic[0];
+		musicSource.Play();
 	}
 	
 	// Update is called once per frame
@@ -117,15 +127,15 @@ public class Player : MonoBehaviour
 
 	public void changeMusic (int musicNr)
 	{
-		if(audio.isPlaying)
+		if(musicSource.isPlaying)
 		{
-			audio.Stop();
-			audio.clip = backgroundMusic[musicNr];
+			musicSource.Stop();
+			musicSource.clip = backgroundMusic[musicNr];
 			if(musicNr == 3)
 			{
-				audio.volume -= 0.1f;
+				musicSource.volume -= 0.1f;
 			}
-			audio.Play();
+			musicSource.Play();
 		}
 	}
 
@@ -183,6 +193,9 @@ public class Player : MonoBehaviour
 	{
 		followScritp.canChase = false;
 		endScript.gameOver = true;
+		m_Player.AllowGameplayInput.Set(false);
+		m_Player.Attack.Stop();
+		m_Controller.Stop();
 	}
 
 	void OnTriggerEnter (Collider other)
