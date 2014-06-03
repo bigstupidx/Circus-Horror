@@ -9,6 +9,8 @@ public class CanonBall : MonoBehaviour
 	public GameObject brokenDoor;
 	public Transform doorPosition;
 	bool hasTriggered = false;
+
+	public ParticleSystem Explosion;
 	// Use this for initialization
 	void Start () 
 	{
@@ -25,14 +27,23 @@ public class CanonBall : MonoBehaviour
 	{
 		if(!hasTriggered)
 		{
-			Destroy(leftDoor);
-			Destroy(rightDoor);
-			Instantiate(brokenDoor, doorPosition.position, doorPosition.rotation);
-			
-			wall.collider.enabled = false;
-			hasTriggered = true;
-			rigidbody.isKinematic = false;
-			rigidbody.AddForce(new Vector3(-8000, 0, 0));
+			Explosion.Play();
+			StartCoroutine(FireCanon());
 		}
 	}
+
+	IEnumerator FireCanon ()
+	{
+		yield return new WaitForSeconds(0.1f);
+		Destroy(leftDoor);
+		Destroy(rightDoor);
+		Instantiate(brokenDoor, doorPosition.position, doorPosition.rotation);
+		
+		wall.collider.enabled = false;
+		hasTriggered = true;
+		rigidbody.isKinematic = false;
+		rigidbody.AddForce(new Vector3(-5000, 0, 0));
+	}
+
+
 }

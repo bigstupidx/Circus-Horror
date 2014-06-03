@@ -58,8 +58,8 @@ public class Player : MonoBehaviour
 		timeToNextImage = Random.Range(minTimeToNextImage, maxTimeToNextImage);
 		timeToNextScaredVoice = Random.Range(minTimeToNextVoice, maxTimeToNextVoice);
 
-		m_Player = GetComponent<vp_FPPlayerEventHandler>();
-		m_Controller = GetComponent<vp_FPController>();
+		m_Player = GameObject.Find("Player").GetComponent<vp_FPPlayerEventHandler>();
+		m_Controller = GameObject.Find("Player").GetComponent<vp_FPController>();
 
 
 		currentAlpha = blackAlphaStart;
@@ -193,9 +193,7 @@ public class Player : MonoBehaviour
 	{
 		followScritp.canChase = false;
 		endScript.gameOver = true;
-		m_Player.AllowGameplayInput.Set(false);
-		m_Player.Attack.Stop();
-		m_Controller.Stop();
+		DisablePlayer();
 	}
 
 	void OnTriggerEnter (Collider other)
@@ -204,5 +202,18 @@ public class Player : MonoBehaviour
 		{
 			doorScript.cabinDoorUnlocked = true;
 		}
+	}
+
+	public void DisablePlayer ()
+	{
+		m_Player.AllowGameplayInput.Set(false);
+		m_Player.Attack.Stop();
+		m_Controller.Stop();
+	}
+
+	public void EnablePlayer ()
+	{
+		m_Player.AllowGameplayInput.Set(true);
+		m_Player.Attack.Start();
 	}
 }

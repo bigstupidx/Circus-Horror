@@ -111,7 +111,9 @@
      <Compile Include="Assets\ProCore\QuickBrush\QuickBrushClasses\qb_Stroke.cs" />
      <Compile Include="Assets\Scripts\CandleScript.cs" />
      <Compile Include="Assets\Scripts\CanonBall.cs" />
+     <Compile Include="Assets\Scripts\CanonCameraScript.cs" />
      <Compile Include="Assets\Scripts\EndCameraScript.cs" />
+     <Compile Include="Assets\Scripts\EndGateScript.cs" />
      <Compile Include="Assets\Scripts\FinshedTrigger.cs" />
      <Compile Include="Assets\Scripts\FogScript.cs" />
      <Compile Include="Assets\Scripts\Follow.cs" />
@@ -129,6 +131,7 @@
      <Compile Include="Assets\Scripts\TorchScript.cs" />
      <Compile Include="Assets\Scripts\VoiceScript.cs" />
      <Compile Include="Assets\Scripts\iTween\iTween.cs" />
+     <Compile Include="Assets\SimpleParticlePack\Scripts\ParticleTester.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\ComponentSystem\vp_Component.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\ComponentSystem\vp_ComponentPreset.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\ComponentSystem\vp_State.cs" />
@@ -198,6 +201,7 @@
      <Compile Include="Assets\UFPS\Base\Scripts\Gameplay\World\Interaction\vp_Interactable_Canon.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Gameplay\World\Interaction\vp_Interactable_Cel.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Gameplay\World\Interaction\vp_Interactable_Key.cs" />
+     <Compile Include="Assets\UFPS\Base\Scripts\Gameplay\World\Interaction\vp_Interactable_Wheel.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Gameplay\World\Interaction\vp_PlatformSwitch.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Gameplay\World\Interaction\vp_Switch.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Gameplay\World\vp_MovingPlatform.cs" />

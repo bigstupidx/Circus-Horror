@@ -13,14 +13,18 @@ public class EndCameraScript : MonoBehaviour
 
 	public Camera playerCamera;
 	public Camera weaponCamera;
+	public Camera canonCamera;
 	public Texture black;
 
 	Player playerScript;
+
+	public GUIText gameOverText;
 
 	// Use this for initialization
 	void Start () 
 	{
 		playerScript = GameObject.Find("PlayerCamera").GetComponent<Player>();
+		gameOverText.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -35,6 +39,7 @@ public class EndCameraScript : MonoBehaviour
 				cameraHasChanged = true;
 				weaponCamera.enabled = false;
 				playerCamera.enabled = false;
+				canonCamera.enabled = false;
 				this.enabled = true;
 				iTween.ValueTo(gameObject, iTween.Hash("from", 1, "to", 0, "time", 2, "onupdate", "UpdateBlack"));
 
@@ -64,6 +69,7 @@ public class EndCameraScript : MonoBehaviour
 
 		if(cameraHasChanged)
 		{
+			gameOverText.enabled = true;
 			GUI.enabled = true;
 			if(GUI.Button(new Rect(Screen.width / 2 - 45, Screen.height * 0.6f, 90, 40), "Restart"))
 			{

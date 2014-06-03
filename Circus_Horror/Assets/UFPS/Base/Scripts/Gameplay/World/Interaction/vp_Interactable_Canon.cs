@@ -26,8 +26,6 @@ using System.Collections.Generic;
 
 public class vp_Interactable_Canon : vp_Interactable
 {
-	CanonBall canonballScript;
-
 	bool gotCanonball = false;
 	bool gotKeg = false;
 	bool gotFuse = false;
@@ -36,11 +34,15 @@ public class vp_Interactable_Canon : vp_Interactable
 
 	public GameObject canonCollider;
 
+	bool hasShot = false;
+	public bool isShooting = false;
+
 	protected override void Start()
 	{
-		canonballScript = GameObject.Find("CanonBall").GetComponent<CanonBall>();
+
 	}
-	
+
+
 	
 	/// <summary>
 	/// This should be overriden and starts the interaction
@@ -51,11 +53,14 @@ public class vp_Interactable_Canon : vp_Interactable
 		if(m_Player == null)
 			m_Player = player;
 
-		if(gotCanonball && gotKeg && gotFuse)
+		//if(gotCanonball && gotKeg && gotFuse && !hasShot)
+		if( !hasShot)
 		{
+			hasShot = true;
+			isShooting = true;
 			interacting = true;
 			canonCollider.collider.enabled = false;
-			canonballScript.Shoot();
+			//canonballScript.Shoot();
 		}
 		else
 		{
@@ -66,6 +71,11 @@ public class vp_Interactable_Canon : vp_Interactable
 		}
 
 		return interacting;
+	}
+
+	public void PlayCanonAudio ()
+	{
+		audio.Play();
 	}
 	
 	
