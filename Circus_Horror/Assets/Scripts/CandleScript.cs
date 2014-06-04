@@ -18,6 +18,9 @@ public class CandleScript : MonoBehaviour
 	bool nearLightSource = false;
 	bool blowOutAnim = false;
 	bool candleFinished = false;
+
+	bool runningLow = false;
+	public bool canTurnCandleOff = false;
 	
 	ManagerScript managerScript;
 	
@@ -49,7 +52,7 @@ public class CandleScript : MonoBehaviour
 	{
 		candleTop.position = candleTopPosition.position;
 
-		if(Input.GetKey(KeyCode.F))
+		if(Input.GetKey(KeyCode.F) && canTurnCandleOff)
 		{
 			if(torchOn && !nearLightSource && !blowOutAnim && !candleFinished)
 			{
@@ -69,7 +72,7 @@ public class CandleScript : MonoBehaviour
 			}
 			else
 			{
-				playerScript.changeMusic(0);
+				playerScript.StopMusic();
 			}
 			if(!firstTimeCanleLit)
 			{
@@ -83,6 +86,13 @@ public class CandleScript : MonoBehaviour
 			candleLight.enabled = true;
 			candleParticles.enableEmission = true;
 			canShowClownImage = false;
+		}
+
+		if(candleBottom.transform.localScale.z < 1.40f && !runningLow)
+		{
+			runningLow = true;
+			voiceScript.motherVoiceSegmentSingle = "Candle going out 1";
+			voiceScript.PlayMotherVoiceSingle();
 		}
 
 		if(candleBottom.transform.localScale.z < 1.25f && !candleFinished)
@@ -115,6 +125,7 @@ public class CandleScript : MonoBehaviour
 	public void CandleTrigger ()
 	{
 		iTween.Pause(candleBottom);
+		followScript.canChase = false;
 		torchOn = false;
 		playerScript.changeMusic(1);
 		candleLight.enabled = false;
@@ -135,7 +146,6 @@ public class CandleScript : MonoBehaviour
 		
 		if(other.tag == "FireTrigger")
 		{
-			Debug.Log("near fire");
 			nearLightSource = true;
 		}
 	}

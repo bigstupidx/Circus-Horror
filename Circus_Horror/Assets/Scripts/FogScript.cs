@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FogScript : MonoBehaviour 
 {
-	float currentFog = 0.14f;
+	public float MaxFog = 0.14f;
 	float minFog = 0.02f;
 
 	bool hasTriggered = false;
@@ -12,10 +12,13 @@ public class FogScript : MonoBehaviour
 	public bool closeDoor = false;
 
 	vp_DoorInteractable doorScript;
+	CandleScript candleScript;
 
 	void Start ()
 	{
 		doorScript = GameObject.Find("CabinDoorTrigger").GetComponent<vp_DoorInteractable>();
+
+
 	}
 
 	void OnTriggerEnter (Collider other)
@@ -23,6 +26,8 @@ public class FogScript : MonoBehaviour
 		if(other.tag == "Player" && !hasTriggered)
 		{
 			hasTriggered = true;
+			candleScript = GameObject.Find("Arm").GetComponent<CandleScript>();
+			candleScript.canTurnCandleOff = true;
 
 			if(increaseFog)
 			{
@@ -30,11 +35,11 @@ public class FogScript : MonoBehaviour
 				{
 					doorScript.CloseCabinDoor();
 				}
-				iTween.ValueTo(gameObject, iTween.Hash("from", minFog, "to", currentFog, "time", 1, "onupdate", "UpdateFog"));
+				iTween.ValueTo(gameObject, iTween.Hash("from", minFog, "to", MaxFog, "time", 1, "onupdate", "UpdateFog"));
 			}
 			else
 			{
-				iTween.ValueTo(gameObject, iTween.Hash("from", currentFog, "to", minFog, "time", 5, "onupdate", "UpdateFog"));
+				iTween.ValueTo(gameObject, iTween.Hash("from", MaxFog, "to", minFog, "time", 5, "onupdate", "UpdateFog"));
 			}
 
 		}

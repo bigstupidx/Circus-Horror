@@ -4,7 +4,10 @@ using System.Collections;
 public class MainMenu : MonoBehaviour 
 {
 	public Texture background;
+	public Texture black;
 	public MovieTexture movie;
+
+	public bool isCredits = false;
 	// Use this for initialization
 	void Start () 
 	{
@@ -12,6 +15,11 @@ public class MainMenu : MonoBehaviour
 		{
 			movie.loop = true;
 			movie.Play();
+		}
+
+		if(isCredits)
+		{
+			StartCoroutine(ToMainMenu());
 		}
 	}
 	
@@ -24,9 +32,21 @@ public class MainMenu : MonoBehaviour
 	void OnGUI ()
 	{
 		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), movie);
-		if(GUI.Button(new Rect(Screen.width / 2 - 45, Screen.height * 0.3f, 90, 40), "Play"))
+		//GUI.DrawTexture(new Rect(Screen.width * 0.7f, Screen.height * 0.3f, Screen.width * 0.9f, Screen.height * 0.6f), black);
+
+		if(!isCredits)
 		{
-			Application.LoadLevel("Level01");
+			if(GUI.Button(new Rect(Screen.width * 0.7f - 45, Screen.height * 0.4f, 90, 40), "Play"))
+			{
+				Application.LoadLevel("Level01");
+			}
 		}
+
+	}
+
+	IEnumerator ToMainMenu ()
+	{
+		yield return new WaitForSeconds(33);
+		Application.LoadLevel("MainMenu");
 	}
 }

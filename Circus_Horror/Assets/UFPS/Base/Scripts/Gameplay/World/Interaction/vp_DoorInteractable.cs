@@ -35,6 +35,8 @@ public class vp_DoorInteractable : vp_Interactable
 
 	public bool endDoor = false;
 
+	public AudioClip doorSound;
+
 	bool doorOpen = false;
 	bool doorIsMoving = false;
 	public bool unlocked = true;
@@ -85,6 +87,8 @@ public class vp_DoorInteractable : vp_Interactable
 		
 		if(m_Player == null)
 			m_Player = player;
+
+
 		
 		PlaySound();
 
@@ -153,10 +157,15 @@ public class vp_DoorInteractable : vp_Interactable
 
 		if(endDoor)
 		{
+			if(endDoor)
+			{
+				voiceScript.PlayFile("Cannon will open");
+			}
 			return;
 		}
 		if(!doorOpen && !doorIsMoving && unlocked && cabinDoorUnlocked)
 		{
+			audio.PlayOneShot(doorSound);
 			this.collider.enabled = false;
 			doorOpen = true;
 			doorIsMoving = true;
@@ -242,13 +251,13 @@ public class vp_DoorInteractable : vp_Interactable
 
 	IEnumerator KeyVoice ()
 	{
-		yield return new WaitForSeconds(4);
+		yield return new WaitForSeconds(5);
 		voiceScript.motherVoiceSegmentRepeat = "Find the key 2";
 		voiceScript.PlayMotherVoiceRepeat();
-		yield return new WaitForSeconds(10);
+		yield return new WaitForSeconds(15);
 		voiceScript.motherVoiceSegmentSingle = "He can see the candle 2";
 		voiceScript.PlayMotherVoiceSingle();
-		m_Player.HUDText.Send("Press F to put the candle out");
+		m_Player.HUDText.Send("Press F to put the candle out \n He will stop chasing you if he can't see you");
 	}
 
 }

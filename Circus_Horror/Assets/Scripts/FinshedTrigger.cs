@@ -17,7 +17,7 @@ public class FinshedTrigger : MonoBehaviour {
 	{
 		if(other.tag == "Player")
 		{
-			Application.LoadLevel("MainMenu");
+			Application.LoadLevel("Credits");
 		}
 	}
 }

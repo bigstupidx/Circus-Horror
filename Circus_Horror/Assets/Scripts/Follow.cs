@@ -50,6 +50,8 @@ public class Follow : MonoBehaviour
 
 	public bool secondArea = false;
 
+	float defaultAgentSpeed = 1.3f;
+
 	bool forestRun = false;
 	bool hasForestDestination = false;
 
@@ -65,15 +67,17 @@ public class Follow : MonoBehaviour
 		voiceScript = GameObject.Find("PlayerCamera").GetComponent<VoiceScript>();
 		slenderVoiceScript = GetComponent<SlenderVoices>();
 		slenderLight.enabled = false;
+		agent.speed = defaultAgentSpeed;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		distance = Vector3.Distance(transform.position, target.position);
 		if(chasingStarted && canChase)
 		{
 			anim.SetBool("ChasingPlayer", true);
-			distance = Vector3.Distance(transform.position, target.position);
+
 			if(!soundIsPlaying)
 			{
 				if(timer < timeUntilSoundPlays)
@@ -112,7 +116,7 @@ public class Follow : MonoBehaviour
 			}
 			else
 			{
-				agent.speed = 1;
+				agent.speed = defaultAgentSpeed;
 				anim.SetBool("CloseToPlayer", false);
 			}
 
@@ -152,7 +156,7 @@ public class Follow : MonoBehaviour
 
 					agent.enabled = false;
 					transform.position = startPosition.position;
-					agent.speed = 1;
+					agent.speed = defaultAgentSpeed;
 					StartCoroutine(SetAnimBackToStart());
 					//slenderLight.enabled = false;
 					forestRun = false;
@@ -162,9 +166,10 @@ public class Follow : MonoBehaviour
 
 
 
+
 			if(chasingStarted)
 			{
-				agent.speed = 1;
+				agent.speed = defaultAgentSpeed;
 				anim.SetBool("CloseToPlayer", false);
 				                     
 				if(needNewPosition)
@@ -224,8 +229,40 @@ public class Follow : MonoBehaviour
 				}
 			}
 		}
+
+		if(secondArea && chasingStarted)
+		{
+			if(distance > 100)
+			{
+				agent.enabled = false;
+				float shortestDistance = 500;
+				float positionDistance;
+				Vector3 closestPosition = secondIdleTargets[0].position;
+				for(int i = 0; i < secondIdleTargets.Length; i++)
+				{
+					positionDistance = Vector3.Distance(transform.position, secondIdleTargets[i].position);
+					if(positionDistance < shortestDistance)
+					{
+						shortestDistance = positionDistance;
+						closestPosition = secondIdleTargets[i].position;
+					}
+				}
+
+				transform.position = closestPosition;
+				agent.enabled = true;
+			}
+		}
 	}
 
+	public void StopChase ()
+	{
+		canChase = false;
+		chasingStarted = false;
+		managerScript.slenderActive = false;
+		agent.enabled = false;
+
+	}
+	
 	IEnumerator GetDestination ()
 	{
 		yield return new WaitForSeconds(1);
@@ -237,6 +274,6 @@ public class Follow : MonoBehaviour
 		anim.SetBool("CloseToPlayer", false);
 		yield return new WaitForSeconds(2);
 		anim.SetBool("ChasingPlayer", false);
-		agent.speed = 1;
+		agent.speed = defaultAgentSpeed;
 	}
 }

@@ -9,8 +9,9 @@ public class StartControl : MonoBehaviour {
 	protected vp_FPPlayerEventHandler m_Player;
 
 	vp_FPController m_Controller;
+
+	VoiceScript voiceScript;
 	
-	Player playerScript;
 
 	float blinkUpPos;
 	float blinkDownPos;
@@ -40,9 +41,10 @@ public class StartControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		voiceScript = GameObject.Find("PlayerCamera").GetComponent<VoiceScript>();
+
 		blinkUpPos = Screen.height * 0.5f;
 		blinkDownPos = Screen.height * 0.4f;
-		playerScript = GameObject.Find("PlayerCamera").GetComponent<Player>();
 		m_Player = GetComponent<vp_FPPlayerEventHandler>();
 		m_Controller = GetComponent<vp_FPController>();
 		m_Player.AllowGameplayInput.Set(false);
@@ -90,8 +92,17 @@ public class StartControl : MonoBehaviour {
 		yield return new WaitForSeconds(2);
 		iTween.ValueTo(gameObject, iTween.Hash("from", Screen.height * 0.6f, "to", Screen.height * 0.0f, "time", 0.3, "onupdate", "UpdateUpBlink"));
 		iTween.ValueTo(gameObject, iTween.Hash("from", Screen.height * 0.3f, "to", Screen.height * 1.0f, "time", 0.3, "onupdate", "UpdateDownBlink"));
+		yield return new WaitForSeconds(2);
+		voiceScript.setVolume(0.4f);
+		voiceScript.PlayFile("Hello");
+		yield return new WaitForSeconds(1);
+		voiceScript.PlayFile("Who are you");
+		yield return new WaitForSeconds(1f);
+		voiceScript.motherVoiceSegmentSingle = "Listen to me";
+		voiceScript.PlayMotherVoiceSingle();
+		yield return new WaitForSeconds(10);
+		voiceScript.setVolume(1);
 		m_Player.AllowGameplayInput.Set(true);
-		playerScript.StartMusic();
 	}
 
 	void UpdateUpBlink (float upPos)

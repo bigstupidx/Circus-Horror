@@ -103,6 +103,10 @@ public class VoiceScript : MonoBehaviour
 		
 	}
 
+	public void setVolume (float volume)
+	{
+		voiceSource.volume = volume;
+	}
 
 	public void StopAudioSource ()
 	{

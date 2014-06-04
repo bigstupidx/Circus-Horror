@@ -71,11 +71,11 @@ public class EndCameraScript : MonoBehaviour
 		{
 			gameOverText.enabled = true;
 			GUI.enabled = true;
-			if(GUI.Button(new Rect(Screen.width / 2 - 45, Screen.height * 0.6f, 90, 40), "Restart"))
+			/*if(GUI.Button(new Rect(Screen.width / 2 - 45, Screen.height * 0.6f, 90, 40), "Restart"))
 			{
 				Debug.Log("button clicked");
 				Application.LoadLevel("Level01");
-			}
+			}*/
 			GUI.color = new Color(1.0f, 1.0f, 1.0f, currentAlpha);
 			GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), black);
 		}

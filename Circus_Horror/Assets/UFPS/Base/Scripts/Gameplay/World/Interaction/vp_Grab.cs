@@ -77,6 +77,7 @@ public class vp_Grab : vp_Interactable
 	protected vp_Timer.Handle m_DisableAngleSwayTimer = new vp_Timer.Handle();
 
 	CandleScript candleScript;
+	Player playerScript;
 	/// <summary>
 	/// 
 	/// </summary>
@@ -101,6 +102,7 @@ public class vp_Grab : vp_Interactable
 		InteractType = vp_InteractType.Normal;
 
 		m_InteractManager = GameObject.FindObjectOfType(typeof(vp_FPInteractManager)) as vp_FPInteractManager;
+		playerScript = GameObject.Find("PlayerCamera").GetComponent<Player>();
 	}
 
 
@@ -188,12 +190,12 @@ public class vp_Grab : vp_Interactable
 	{
 
 		// calculate positional sway force
-		m_CurrentSwayForce += m_Player.Velocity.Get() * 0.001f;
+		m_CurrentSwayForce += m_Player.Velocity.Get() * 0.005f;
 		m_CurrentSwayForce.y += m_CurrentFootstepForce;
 		m_CurrentSwayForce += m_Camera.Transform.TransformDirection(new Vector3(
-			m_CurrentMouseMove.x * 0.01f,
+			m_CurrentMouseMove.x * 0.03f,
 			// prevent vertical sway if we hit lower pitch limit
-			(m_Player.Rotation.Get().x > m_Camera.RotationPitchLimit.y) ? m_CurrentMouseMove.y * 0.005f : m_CurrentMouseMove.y * 0.01f,
+			(m_Player.Rotation.Get().x > m_Camera.RotationPitchLimit.y) ? m_CurrentMouseMove.y * 0.005f : m_CurrentMouseMove.y * 0.03f,
 			0.0f));
 
 		// update object position
@@ -326,6 +328,7 @@ public class vp_Grab : vp_Interactable
 		candleScript = GameObject.Find("Arm").GetComponent<CandleScript>();
 		if(candleScript != null)
 		{
+			playerScript.maxTimeUntilDark = 90;
 			candleScript.CandleTrigger();
 		}
 
@@ -389,6 +392,8 @@ public class vp_Grab : vp_Interactable
 		// reset grab and fetch states
 		m_IsGrabbed = false;
 		m_FetchProgress = 1.0f;
+
+		playerScript.maxTimeUntilDark = 45;
 
 		// stop listening to camera footsteps
 		m_Camera.BobStepCallback -= Footstep;

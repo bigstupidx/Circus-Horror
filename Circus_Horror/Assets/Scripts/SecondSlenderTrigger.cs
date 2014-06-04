@@ -5,6 +5,7 @@ public class SecondSlenderTrigger : MonoBehaviour
 {
 	Follow followScript;
 	ManagerScript managerScript;
+	Player playerScript;
 
 	bool slenderTriggered = false;
 
@@ -13,6 +14,7 @@ public class SecondSlenderTrigger : MonoBehaviour
 	{
 		followScript = GameObject.Find("SlenderMan").GetComponent<Follow>();
 		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
+		playerScript = GameObject.Find("PlayerCamera").GetComponent<Player>();
 	}
 	
 	// Update is called once per frame
@@ -27,6 +29,7 @@ public class SecondSlenderTrigger : MonoBehaviour
 		{
 			if(!slenderTriggered)
 			{
+				playerScript.changeMusic(2);
 				slenderTriggered = true;
 				followScript.secondArea = true;
 				managerScript.slenderActive = true;

@@ -26,9 +26,14 @@ using System.Collections.Generic;
 
 public class vp_Interactable_Canon : vp_Interactable
 {
-	bool gotCanonball = false;
-	bool gotKeg = false;
-	bool gotFuse = false;
+	[System.NonSerialized]
+	public bool gotCanonball = false;
+
+	[System.NonSerialized]
+	public bool gotKeg = false;
+
+	[System.NonSerialized]
+	public bool gotFuse = false;
 
 	string message;
 
@@ -37,9 +42,12 @@ public class vp_Interactable_Canon : vp_Interactable
 	bool hasShot = false;
 	public bool isShooting = false;
 
+	VoiceScript voiceScript;
+
+
 	protected override void Start()
 	{
-
+		voiceScript = GameObject.Find("PlayerCamera").GetComponent<VoiceScript>();
 	}
 
 
@@ -53,20 +61,18 @@ public class vp_Interactable_Canon : vp_Interactable
 		if(m_Player == null)
 			m_Player = player;
 
-		//if(gotCanonball && gotKeg && gotFuse && !hasShot)
-		if( !hasShot)
+		if(gotCanonball && gotKeg && gotFuse && !hasShot)
 		{
 			hasShot = true;
 			isShooting = true;
 			interacting = true;
 			canonCollider.collider.enabled = false;
-			//canonballScript.Shoot();
 		}
 		else
 		{
 			interacting = true;
 			CheckForItems ();
-
+			voiceScript.PlayFile("You dont have Cannon");
 			m_Player.HUDText.Send(message);
 		}
 
@@ -89,24 +95,21 @@ public class vp_Interactable_Canon : vp_Interactable
 		/*// only do something if the trigger is of type Trigger
 		if (InteractType != vp_InteractType.Trigger)
 			return;*/
-
+		
 		if(col.tag == "CanonballPickup")
 		{
-			Debug.Log("canon ball");
 			gotCanonball = true;
 			Destroy(col.gameObject);
 		}
 
 		if(col.tag == "PowderPickup")
 		{
-			Debug.Log("powder");
 			gotKeg = true;
 			Destroy(col.gameObject);
 		}
 
 		if(col.tag == "FusePickup")
 		{
-			Debug.Log("fuse");
 			gotFuse = true;
 			Destroy(col.gameObject);
 		}
@@ -131,23 +134,23 @@ public class vp_Interactable_Canon : vp_Interactable
 
 	void CheckForItems ()
 	{
-		message = "You need the ";
+		message = "You need the \n";
 
 		if(!gotCanonball)
 		{
-			string canonMessage = "Canon Ball ";
+			string canonMessage = "Canon Ball \n";
 			message += canonMessage;
 		}
 
 		if(!gotKeg)
 		{
-			string kegMessage = "Gun Powder ";
+			string kegMessage = "Gun Powder \n";
 			message += kegMessage;
 		}
 
 		if(!gotFuse)
 		{
-			string fuseMessage = "Fuse ";
+			string fuseMessage = "Fuse \n";
 			message += fuseMessage;
 		}
 

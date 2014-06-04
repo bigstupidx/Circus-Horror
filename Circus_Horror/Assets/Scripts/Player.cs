@@ -13,7 +13,8 @@ public class Player : MonoBehaviour
 	public float minTimeToNextVoice = 8;
 	public float maxTimeToNextVoice = 16;
 
-	public float maxTimeUntilDark = 90;
+	[System.NonSerialized]
+	public float maxTimeUntilDark = 60;
 
 	protected vp_FPPlayerEventHandler m_Player;
 	vp_FPController m_Controller;
@@ -33,6 +34,9 @@ public class Player : MonoBehaviour
 	float timeToNextScaredVoice;
 
 	bool startedToBlackout = false;
+
+	bool candleOnVoice = false;
+
 	float blackAlphaStart = 0.0f;
 	float currentAlpha;
 
@@ -64,13 +68,13 @@ public class Player : MonoBehaviour
 
 		currentAlpha = blackAlphaStart;
 		objective = "Find the candle";
+
+		musicSource.loop = true;
 	}
 
-	public void StartMusic ()
+	public void StopMusic ()
 	{
-		musicSource.loop = true;
-		musicSource.clip = backgroundMusic[0];
-		musicSource.Play();
+		audio.Stop();
 	}
 	
 	// Update is called once per frame
@@ -94,12 +98,20 @@ public class Player : MonoBehaviour
 			if(imageTimer < timeToNextImage)
 			{
 				imageTimer += Time.deltaTime;
+
+				if(imageTimer > 30 && !candleOnVoice)
+				{
+					candleOnVoice = true;
+					voiceScript.motherVoiceSegmentSingle = "Too Dark 1";
+					voiceScript.PlayMotherVoiceSingle();
+				}
 			}
 			else
 			{
 				imageTimer = 0;
 				timeToNextImage = Random.Range(minTimeToNextImage, maxTimeToNextImage);
 				StartCoroutine(ShowImage());
+				candleOnVoice = false;
 			}
 
 			if(scaredTimer < timeToNextScaredVoice)
@@ -130,15 +142,15 @@ public class Player : MonoBehaviour
 		if(musicSource.isPlaying)
 		{
 			musicSource.Stop();
-			musicSource.clip = backgroundMusic[musicNr];
-			if(musicNr == 3)
-			{
-				musicSource.volume -= 0.1f;
-			}
-			musicSource.Play();
 		}
+		musicSource.clip = backgroundMusic[musicNr];
+		if(musicNr == 3)
+		{
+			musicSource.volume -= 0.1f;
+		}
+		musicSource.Play();
 	}
-
+	
 	void OnEnable()
 	{
 		

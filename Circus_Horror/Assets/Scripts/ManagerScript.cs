@@ -23,6 +23,7 @@ public class ManagerScript : MonoBehaviour
 	{
 		int firstKeyPosition = Random.Range(0, firstKeyPositions.Length);
 		firstKey.transform.position = firstKeyPositions[firstKeyPosition].position;
+		firstKey.transform.rotation = firstKeyPositions[firstKeyPosition].rotation;
 
 		int canonballPosition = Random.Range(0, canonBallPositions.Length);
 		canonBallPickup.transform.position = canonBallPositions[canonballPosition].position;

@@ -5,7 +5,8 @@ public class SecondDoorTrigger : MonoBehaviour
 {
 	vp_DoorInteractable doorScript;
 	Follow followScript;
-	ManagerScript managerScript;
+	VoiceScript voiceScript;
+	Player playerScript;
 
 	protected vp_FPPlayerEventHandler m_Player;
 
@@ -13,7 +14,8 @@ public class SecondDoorTrigger : MonoBehaviour
 	{
 		doorScript = GameObject.Find("SecondDoorTrigger").GetComponent<vp_DoorInteractable>();
 		followScript = GameObject.Find("SlenderMan").GetComponent<Follow>();
-		managerScript = GameObject.Find("GameManager").GetComponent<ManagerScript>();
+		voiceScript = GameObject.Find("PlayerCamera").GetComponent<VoiceScript>();
+		playerScript = GameObject.Find("PlayerCamera").GetComponent<Player>();
 	}
 
 	protected void OnEnable()
@@ -43,11 +45,12 @@ public class SecondDoorTrigger : MonoBehaviour
 		if(other.tag == "Player")
 		{
 			doorScript.CloseDoors();
-			followScript.canChase = false;
-			followScript.chasingStarted = false;
-			managerScript.slenderActive = false;
+			followScript.StopChase();
+			playerScript.StopMusic();
 			m_Player = other.gameObject.GetComponent<vp_FPPlayerEventHandler>();
-			m_Player.HUDText.Send("Go to the gate");
+			m_Player.HUDText.Send("Find the Entrance Gate");
+			voiceScript.motherVoiceSegmentRepeat = "The Way Out 1";
+			voiceScript.PlayMotherVoiceRepeat();
 		}
 	}
 }
