@@ -18,6 +18,7 @@ public class CanonCameraScript : MonoBehaviour
 	vp_Interactable_Canon canonScript;
 	AudioListener playerListener;
 	vp_SimpleCrosshair simpleHud;
+	Follow followScript;
 
 
 	// Use this for initialization
@@ -29,7 +30,7 @@ public class CanonCameraScript : MonoBehaviour
 		playerScript = GameObject.Find("PlayerCamera").GetComponent<Player>();
 		canonScript = GameObject.Find("CannonS").GetComponent<vp_Interactable_Canon>();
 		simpleHud = GameObject.Find("Player").GetComponent<vp_SimpleCrosshair>();
-
+		followScript = GameObject.Find("SlenderMan").GetComponent<Follow>();
 	}
 	
 	// Update is called once per frame
@@ -39,7 +40,7 @@ public class CanonCameraScript : MonoBehaviour
 
 		if(canonScript.isShooting)
 		{
-
+			followScript.PauseAgent();
 			simpleHud.enabled = false;
 			canonScript.isShooting = false;
 			this.camera.enabled = true;
@@ -60,6 +61,7 @@ public class CanonCameraScript : MonoBehaviour
 		canonBallScript.Shoot();
 		canonScript.PlayCanonAudio();
 		yield return new WaitForSeconds(4);
+		followScript.ResumeAgent();
 		simpleHud.enabled = true;
 		listener.enabled = false;
 		playerListener.enabled = true;

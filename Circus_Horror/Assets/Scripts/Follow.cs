@@ -7,11 +7,13 @@ public class Follow : MonoBehaviour
 	public Transform target;
 
 	public Transform firstSpawn;
-	public Transform secondSpawn;
+
 	public Transform startPosition;
 
 	public Transform forestStartPosition;
 	public Transform forestEndPosition;
+
+	public bool secondSlenderTriggered = false;
 
 	public Light slenderLight;
 
@@ -43,6 +45,10 @@ public class Follow : MonoBehaviour
 	Animator anim;
 	NavMeshAgent agent;
 
+	float teleportTimer = 0;
+	float teleportTime = 20;
+	bool canTeleport = true;
+
 	float timer = 0;
 	float startTimer = 0;
 	public bool chasingStarted = false;
@@ -56,6 +62,8 @@ public class Follow : MonoBehaviour
 	bool hasForestDestination = false;
 
 	bool startedSecondArea = false;
+	Transform secondSpawn;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -74,6 +82,49 @@ public class Follow : MonoBehaviour
 	void Update () 
 	{
 		distance = Vector3.Distance(transform.position, target.position);
+
+
+		if(secondArea && chasingStarted)
+		{
+			if(distance > 75 && canTeleport)
+			{
+				canTeleport = false;
+				float shortestDistance = 500;
+				float positionDistance;
+				Vector3 closestPosition = transform.position;
+				for(int i = 0; i < secondIdleTargets.Length; i++)
+				{
+					positionDistance = Vector3.Distance(target.position, secondIdleTargets[i].position);
+					if(positionDistance < shortestDistance)
+					{
+						shortestDistance = positionDistance;
+						closestPosition = secondIdleTargets[i].position;
+					}
+				}
+
+				if(closestPosition != transform.position)
+				{
+					agent.enabled = false;
+					transform.position = closestPosition;
+					agent.enabled = true;
+				}
+
+			}
+		}
+
+		if(!canTeleport)
+		{
+			if(teleportTimer < teleportTime)
+			{
+				teleportTimer += Time.deltaTime;
+			}
+			else
+			{
+				timer = 0;
+				canTeleport = true;
+			}
+		}
+
 		if(chasingStarted && canChase)
 		{
 			anim.SetBool("ChasingPlayer", true);
@@ -126,7 +177,11 @@ public class Follow : MonoBehaviour
 				endScript.gameOver = true;
 				voiceScript.PlayFile("Scream");
 			}
-			agent.destination = target.position;
+			if(agent.enabled)
+			{
+				agent.destination = target.position;
+			}
+
 		}
 		else
 		{
@@ -134,7 +189,6 @@ public class Follow : MonoBehaviour
 			{
 				if(!forestRun)
 				{
-					Debug.Log("StartingForestRun");
 					forestRun = true;
 					agent.enabled = false;
 					transform.position = forestStartPosition.position;
@@ -229,29 +283,6 @@ public class Follow : MonoBehaviour
 				}
 			}
 		}
-
-		if(secondArea && chasingStarted)
-		{
-			if(distance > 100)
-			{
-				agent.enabled = false;
-				float shortestDistance = 500;
-				float positionDistance;
-				Vector3 closestPosition = secondIdleTargets[0].position;
-				for(int i = 0; i < secondIdleTargets.Length; i++)
-				{
-					positionDistance = Vector3.Distance(transform.position, secondIdleTargets[i].position);
-					if(positionDistance < shortestDistance)
-					{
-						shortestDistance = positionDistance;
-						closestPosition = secondIdleTargets[i].position;
-					}
-				}
-
-				transform.position = closestPosition;
-				agent.enabled = true;
-			}
-		}
 	}
 
 	public void StopChase ()
@@ -261,6 +292,22 @@ public class Follow : MonoBehaviour
 		managerScript.slenderActive = false;
 		agent.enabled = false;
 
+	}
+
+	public void SecondTrigger (Transform newSpawn)
+	{
+		secondSpawn = newSpawn;
+		secondArea = true;
+	}
+
+	public void PauseAgent ()
+	{
+		agent.enabled = false;
+	}
+
+	public void ResumeAgent ()
+	{
+		agent.enabled = true;
 	}
 	
 	IEnumerator GetDestination ()

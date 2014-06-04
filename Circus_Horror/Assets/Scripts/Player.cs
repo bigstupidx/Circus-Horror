@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 	public float maxTimeToNextVoice = 16;
 
 	[System.NonSerialized]
-	public float maxTimeUntilDark = 60;
+	public float maxTimeUntilDark = 50;
 
 	protected vp_FPPlayerEventHandler m_Player;
 	vp_FPController m_Controller;
@@ -131,7 +131,8 @@ public class Player : MonoBehaviour
 			if(startedToBlackout)
 			{
 				startedToBlackout = false;
-				iTween.Stop ();
+				candleOnVoice = false;
+				iTween.Stop(gameObject);
 				currentAlpha = blackAlphaStart;
 			}
 		}

@@ -43,6 +43,8 @@ public class vp_DoorInteractable : vp_Interactable
 
 	bool slenderTriggered = false;
 
+	bool gateFound = false;
+
 	ManagerScript managerScript;
 	vp_DoorInteractable doorScript;
 	Player playerScript;
@@ -159,6 +161,12 @@ public class vp_DoorInteractable : vp_Interactable
 		{
 			if(endDoor)
 			{
+				if(!gateFound)
+				{
+					gateFound = true;
+					voiceScript.repeatVoice = false;
+				}
+				m_Player.HUDText.Send("The Door is Locked. Maybe you can break it with something");
 				voiceScript.PlayFile("Cannon will open");
 			}
 			return;

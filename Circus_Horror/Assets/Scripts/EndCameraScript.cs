@@ -19,7 +19,7 @@ public class EndCameraScript : MonoBehaviour
 	Player playerScript;
 
 	public GUIText gameOverText;
-
+	public GUISkin horrorSkin;
 	// Use this for initialization
 	void Start () 
 	{
@@ -66,7 +66,7 @@ public class EndCameraScript : MonoBehaviour
 	void OnGUI ()
 	{
 
-
+		GUI.skin = horrorSkin;
 		if(cameraHasChanged)
 		{
 			gameOverText.enabled = true;

@@ -29,7 +29,8 @@ public class vp_Interactable_Cel : vp_Interactable
 	public Light light1;
 
 	bool hasStarted = false;
-	
+	bool propMoving = true;
+
 	protected override void Start()
 	{
 		light1.enabled = false;
@@ -42,11 +43,16 @@ public class vp_Interactable_Cel : vp_Interactable
 	public override bool TryInteract(vp_FPPlayerEventHandler player)
 	{
 		bool interacting = false;
+
 		if(m_Player == null)
 			m_Player = player;
-		hasStarted = !hasStarted;
-		TriggerCarouselMovement();
-
+		if(propMoving)
+		{
+			hasStarted = !hasStarted;
+			TriggerCarouselMovement();
+			interacting = true;
+		}
+		
 		return interacting;
 	}
 	

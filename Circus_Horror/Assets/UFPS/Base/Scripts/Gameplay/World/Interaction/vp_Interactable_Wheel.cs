@@ -31,6 +31,8 @@ public class vp_Interactable_Wheel : vp_Interactable
 	public GameObject wheel;
 
 	bool hasStarted = false;
+
+	bool propMoving = true;
 	
 	protected override void Start()
 	{
@@ -44,10 +46,15 @@ public class vp_Interactable_Wheel : vp_Interactable
 	public override bool TryInteract(vp_FPPlayerEventHandler player)
 	{
 		bool interacting = false;
+
 		if(m_Player == null)
 			m_Player = player;
-		hasStarted = !hasStarted;
-		TriggerCarouselMovement();
+		if(propMoving)
+		{
+			hasStarted = !hasStarted;
+			TriggerCarouselMovement();
+			interacting = true;
+		}
 
 		return interacting;
 	}
@@ -87,7 +94,7 @@ public class vp_Interactable_Wheel : vp_Interactable
 	{
 		if(!hasStarted)
 		{
-			iTween.RotateBy(wheel, iTween.Hash("z", -1, "time", 30, "easetype", "linear", "looptype", "loop"));
+			iTween.RotateBy(wheel, iTween.Hash("z", -1, "time", 40, "easetype", "linear", "looptype", "loop"));
 			light1.enabled = true;
 	
 		}

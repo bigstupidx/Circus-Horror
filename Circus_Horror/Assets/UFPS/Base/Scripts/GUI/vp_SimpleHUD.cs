@@ -16,7 +16,7 @@ using UnityEngine;
 
 public class vp_SimpleHUD : MonoBehaviour
 {
-
+	public GUISkin horrorSkin;
 	public Texture DamageFlashTexture = null;
 	public bool ShowHUD = true;
 	Color m_MessageColor = new Color(2, 2, 0, 2);
@@ -33,6 +33,7 @@ public class vp_SimpleHUD : MonoBehaviour
 			{
 				m_MessageStyle = new GUIStyle("Label");
 				m_MessageStyle.alignment = TextAnchor.MiddleCenter;
+
 			}
 			return m_MessageStyle;
 		}
@@ -85,6 +86,7 @@ public class vp_SimpleHUD : MonoBehaviour
 		if (!ShowHUD)
 			return;
 
+
 		// display a simple 'Health' HUD
 		//GUI.Box(new Rect(10, Screen.height - 30, 100, 22), "Health: " + (int)(m_Player.Health.Get() * 100.0f) + "%");
 
@@ -97,11 +99,13 @@ public class vp_SimpleHUD : MonoBehaviour
 		// show a message in the middle of the screen and fade it out
 		if (!string.IsNullOrEmpty(m_PickupMessage) && m_MessageColor.a > 0.01f)
 		{
-
+			GUI.skin = horrorSkin;
+			//m_MessageStyle.font = horrorFont;
 			m_MessageColor = Color.Lerp(m_MessageColor, m_InvisibleColor, Time.deltaTime * 0.1f);
 			GUI.color = m_MessageColor;
 			GUI.Box(new Rect(200, 150, Screen.width - 400, Screen.height - 400), m_PickupMessage, MessageStyle);
 			GUI.color = Color.white;
+
 		}
 
 		// show a red glow along the screen edges when damaged
