@@ -30,7 +30,7 @@ public class vp_Interactable_Wheel : vp_Interactable
 
 	public GameObject wheel;
 
-	bool hasStarted = false;
+	bool hasStarted = true;
 
 	bool propMoving = true;
 	

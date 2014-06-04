@@ -28,7 +28,7 @@ public class vp_Interactable_Cel : vp_Interactable
 {
 	public Light light1;
 
-	bool hasStarted = false;
+	bool hasStarted = true;
 	bool propMoving = true;
 
 	protected override void Start()
