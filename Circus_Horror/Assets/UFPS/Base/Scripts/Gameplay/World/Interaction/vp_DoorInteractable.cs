@@ -159,16 +159,14 @@ public class vp_DoorInteractable : vp_Interactable
 
 		if(endDoor)
 		{
-			if(endDoor)
+			if(!gateFound)
 			{
-				if(!gateFound)
-				{
-					gateFound = true;
-					voiceScript.repeatVoice = false;
-				}
-				m_Player.HUDText.Send("The Door is Locked. Maybe you can break it with something");
-				voiceScript.PlayFile("Cannon will open");
+				gateFound = true;
+				voiceScript.repeatVoice = false;
+				voiceScript.gateFound = true;
 			}
+			m_Player.HUDText.Send("The Door is Locked. Maybe you can break it with something");
+			voiceScript.PlayFile("Cannon will open");
 			return;
 		}
 		if(!doorOpen && !doorIsMoving && unlocked && cabinDoorUnlocked)

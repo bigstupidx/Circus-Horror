@@ -204,6 +204,8 @@ public class Player : MonoBehaviour
 
 	void GameOver ()
 	{
+		iTween.Stop(gameObject);
+		currentAlpha = blackAlphaStart;
 		followScritp.canChase = false;
 		endScript.gameOver = true;
 		DisablePlayer();

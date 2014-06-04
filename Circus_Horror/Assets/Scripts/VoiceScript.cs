@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class VoiceScript : MonoBehaviour 
 {
@@ -8,19 +9,47 @@ public class VoiceScript : MonoBehaviour
 	public AudioClip[] scared;
 	public AudioClip[] blowOut;
 
+	public AudioClip[] motherSecondArea;
+
 	public string motherVoiceSegmentSingle;
 	public string motherVoiceSegmentRepeat;
 
+	[System.NonSerialized]
 	public bool repeatVoice = false;
+
+	[System.NonSerialized]
+	public bool gateFound = false;
 
 	public float repeatTime = 30;
 	float repeatTimer = 0;
 
+	float motherTimer = 0;
+	float motherTime = 40;
+	float minMotherTime = 25;
+	float maxMotherTime = 50;
+
 	AudioSource voiceSource;
+
+	vp_Interactable_Canon canonScript;
 	// Use this for initialization
 
 	void Update ()
 	{
+		if(gateFound)
+		{
+			if(motherTimer < motherTime)
+			{
+				motherTimer += Time.deltaTime;
+			}
+			else
+			{
+				motherTimer = 0;
+				motherTime = Random.Range(minMotherTime, maxMotherTime);
+				int randomNr = Random.Range(0, motherSecondArea.Length);
+				voiceSource.PlayOneShot(motherSecondArea[randomNr]);
+			}
+		}
+
 		if(repeatVoice)
 		{
 			if(repeatTimer < repeatTime)
@@ -43,6 +72,7 @@ public class VoiceScript : MonoBehaviour
 	{
 		AudioSource[] aSource = GetComponents<AudioSource>();
 		voiceSource = aSource[1];
+		//canonScript = GameObject.Find("CannonS").GetComponent<vp_Interactable_Canon>();
 	}
 
 	public void PlayBreathing ()

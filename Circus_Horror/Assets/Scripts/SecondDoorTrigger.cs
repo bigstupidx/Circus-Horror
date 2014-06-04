@@ -8,6 +8,8 @@ public class SecondDoorTrigger : MonoBehaviour
 	VoiceScript voiceScript;
 	Player playerScript;
 
+	bool hasBeenTriggered = false;
+
 	protected vp_FPPlayerEventHandler m_Player;
 
 	void Start ()
@@ -42,8 +44,9 @@ public class SecondDoorTrigger : MonoBehaviour
 
 	void OnTriggerEnter (Collider other)
 	{
-		if(other.tag == "Player")
+		if(other.tag == "Player" && !hasBeenTriggered)
 		{
+			hasBeenTriggered = true;
 			doorScript.CloseDoors();
 			followScript.StopChase();
 			playerScript.StopMusic();

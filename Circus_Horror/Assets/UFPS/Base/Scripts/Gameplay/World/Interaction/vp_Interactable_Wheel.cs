@@ -27,6 +27,7 @@ using System.Collections.Generic;
 public class vp_Interactable_Wheel : vp_Interactable
 {
 	public Light light1;
+	public Light light2;
 
 	public GameObject wheel;
 
@@ -37,6 +38,7 @@ public class vp_Interactable_Wheel : vp_Interactable
 	protected override void Start()
 	{
 		light1.enabled = false;
+		light2.enabled = false;
 	}
 	
 	
@@ -96,13 +98,13 @@ public class vp_Interactable_Wheel : vp_Interactable
 		{
 			iTween.RotateBy(wheel, iTween.Hash("z", -1, "time", 40, "easetype", "linear", "looptype", "loop"));
 			light1.enabled = true;
-	
+			light2.enabled = true;
 		}
 		else
 		{
 			iTween.Stop(wheel);
 			light1.enabled = false;
-
+			light2.enabled = false;
 		}
 	}
 }

@@ -24,6 +24,7 @@ public class GateDoorTrigger : MonoBehaviour
 		if(other.tag == "Player" && !hasBeenFound)
 		{
 			hasBeenFound = true;
+			voiceScript.gateFound = true;
 			voiceScript.repeatVoice = false;
 		}
 	}

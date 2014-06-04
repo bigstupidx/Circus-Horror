@@ -40,6 +40,7 @@ public class Follow : MonoBehaviour
 	SlenderVoices slenderVoiceScript;
 
 	bool billyHasPlayed = false;
+	bool runHasPlayed = false;
 	float distance;
 
 	Animator anim;
@@ -142,6 +143,12 @@ public class Follow : MonoBehaviour
 					slenderVoiceScript.PlayTeasing();
 					timeUntilSoundPlays = Random.Range(10, 30);
 				}
+
+				if(distance < 15 && !runHasPlayed)
+				{
+					runHasPlayed = true;
+					voiceScript.PlayFile("Hes Coming RUN 2");
+				}
 				
 				if(distance < soundDistance && !billyHasPlayed)
 				{
@@ -151,6 +158,7 @@ public class Follow : MonoBehaviour
 				else if(distance > distanceForSoundReset)
 				{
 					billyHasPlayed = false;
+					runHasPlayed = false;
 				}
 			}
 			else
