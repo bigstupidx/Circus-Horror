@@ -256,6 +256,13 @@ public class Follow : MonoBehaviour
 						needNewPosition = true;
 					}
 				}
+
+				if(distance < 1.2f)
+				{
+					canChase = false;
+					endScript.gameOver = true;
+					voiceScript.PlayFile("Scream");
+				}
 			}
 
 

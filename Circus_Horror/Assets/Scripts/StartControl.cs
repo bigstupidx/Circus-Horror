@@ -6,6 +6,8 @@ public class StartControl : MonoBehaviour {
 	public Texture blinkUp;
 	public Texture blinkDown;
 
+	public GameObject tutorialPicture;
+
 	protected vp_FPPlayerEventHandler m_Player;
 
 	vp_FPController m_Controller;
@@ -42,7 +44,7 @@ public class StartControl : MonoBehaviour {
 	void Start () 
 	{
 		voiceScript = GameObject.Find("PlayerCamera").GetComponent<VoiceScript>();
-
+		tutorialPicture.SetActive(false);
 		blinkUpPos = Screen.height * 0.5f;
 		blinkDownPos = Screen.height * 0.4f;
 		m_Player = GetComponent<vp_FPPlayerEventHandler>();
@@ -103,6 +105,7 @@ public class StartControl : MonoBehaviour {
 		yield return new WaitForSeconds(10);
 		voiceScript.setVolume(1);
 		m_Player.AllowGameplayInput.Set(true);
+		tutorialPicture.SetActive(true);
 	}
 
 	void UpdateUpBlink (float upPos)

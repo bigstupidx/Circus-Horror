@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_4_5_0;UNITY_4_5;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX;UNITY_PRO_LICENSE</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_5_0;UNITY_4_5;UNITY_STANDALONE_LINUX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX;UNITY_PRO_LICENSE</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -413,31 +413,31 @@
      <None Include="Assets\Plugins\Decal System\Shader\Mobile\Mobile-Decal-Alpha-TargetBumped.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendForBloom.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/AlanFlannery/Circus-Horror/Circus_Horror/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/jurienmeerlo/Documents/Repositories/Circus-Horror/Circus_Horror/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="Assembly-UnityScript">
- <HintPath>/Users/AlanFlannery/Circus-Horror/Circus_Horror/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ <HintPath>/Users/jurienmeerlo/Documents/Repositories/Circus-Horror/Circus_Horror/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore">
- <HintPath>/Users/AlanFlannery/Circus-Horror/Circus_Horror/Assets/6by7/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
+ <HintPath>/Users/jurienmeerlo/Documents/Repositories/Circus-Horror/Circus_Horror/Assets/6by7/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderEditor">
- <HintPath>/Users/AlanFlannery/Circus-Horror/Circus_Horror/Assets/6by7/ProBuilder/Editor/ProBuilderEditor.dll</HintPath>
+ <HintPath>/Users/jurienmeerlo/Documents/Repositories/Circus-Horror/Circus_Horror/Assets/6by7/ProBuilder/Editor/ProBuilderEditor.dll</HintPath>
  </Reference>
  <Reference Include="SixBySeven">
- <HintPath>/Users/AlanFlannery/Circus-Horror/Circus_Horror/Assets/6by7/Shared/Code/SixBySeven.dll</HintPath>
+ <HintPath>/Users/jurienmeerlo/Documents/Repositories/Circus-Horror/Circus_Horror/Assets/6by7/Shared/Code/SixBySeven.dll</HintPath>
  </Reference>
  <Reference Include="Mixamo.UnityStore">
- <HintPath>/Users/AlanFlannery/Circus-Horror/Circus_Horror/Assets/MecanimAnimationStore/Editor/Mixamo.UnityStore.dll</HintPath>
+ <HintPath>/Users/jurienmeerlo/Documents/Repositories/Circus-Horror/Circus_Horror/Assets/MecanimAnimationStore/Editor/Mixamo.UnityStore.dll</HintPath>
  </Reference>
  <Reference Include="Mixamo.UnityStore.Unity4">
- <HintPath>/Users/AlanFlannery/Circus-Horror/Circus_Horror/Assets/MecanimAnimationStore/Editor/Mixamo.UnityStore.Unity4.dll</HintPath>
+ <HintPath>/Users/jurienmeerlo/Documents/Repositories/Circus-Horror/Circus_Horror/Assets/MecanimAnimationStore/Editor/Mixamo.UnityStore.Unity4.dll</HintPath>
  </Reference>
  <Reference Include="DecalSystem.Runtime">
- <HintPath>/Users/AlanFlannery/Circus-Horror/Circus_Horror/Assets/Plugins/Decal System/DecalSystem.Runtime.dll</HintPath>
+ <HintPath>/Users/jurienmeerlo/Documents/Repositories/Circus-Horror/Circus_Horror/Assets/Plugins/Decal System/DecalSystem.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="DecalSystem.Editor">
- <HintPath>/Users/AlanFlannery/Circus-Horror/Circus_Horror/Assets/Plugins/Editor/Decal System/DecalSystem.Editor.dll</HintPath>
+ <HintPath>/Users/jurienmeerlo/Documents/Repositories/Circus-Horror/Circus_Horror/Assets/Plugins/Editor/Decal System/DecalSystem.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>

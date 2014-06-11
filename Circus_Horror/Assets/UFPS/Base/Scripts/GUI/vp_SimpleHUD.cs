@@ -103,7 +103,7 @@ public class vp_SimpleHUD : MonoBehaviour
 			//m_MessageStyle.font = horrorFont;
 			m_MessageColor = Color.Lerp(m_MessageColor, m_InvisibleColor, Time.deltaTime * 0.1f);
 			GUI.color = m_MessageColor;
-			GUI.Box(new Rect(200, 150, Screen.width - 400, Screen.height - 400), m_PickupMessage, MessageStyle);
+			GUI.Box(new Rect(200, 50, Screen.width - 400, Screen.height - 560), m_PickupMessage, MessageStyle);
 			GUI.color = Color.white;
 
 		}

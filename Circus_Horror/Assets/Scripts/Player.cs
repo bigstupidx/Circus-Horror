@@ -30,12 +30,17 @@ public class Player : MonoBehaviour
 	float imageTimer = 0;
 	float timeToNextImage;
 
+	float blackoutTimer = 0;
+	float blackoutTime;
+
 	float scaredTimer = 0;
 	float timeToNextScaredVoice;
 
 	bool startedToBlackout = false;
 
 	bool candleOnVoice = false;
+
+	bool almostDark = false;
 
 	float blackAlphaStart = 0.0f;
 	float currentAlpha;
@@ -51,6 +56,7 @@ public class Player : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		blackoutTime = maxTimeUntilDark - 15;
 		AudioSource[] aSource = GetComponents<AudioSource>();
 		musicSource = aSource[0];
 		candleScript = GameObject.Find("Arm").GetComponent<CandleScript>();
@@ -99,12 +105,12 @@ public class Player : MonoBehaviour
 			{
 				imageTimer += Time.deltaTime;
 
-				if(imageTimer > 30 && !candleOnVoice)
+				/*if(imageTimer > 30 && !candleOnVoice)
 				{
 					candleOnVoice = true;
 					voiceScript.motherVoiceSegmentSingle = "Too Dark 1";
 					voiceScript.PlayMotherVoiceSingle();
-				}
+				}*/
 			}
 			else
 			{
@@ -125,11 +131,28 @@ public class Player : MonoBehaviour
 				voiceScript.PlayDarkness();
 			}
 
+			if(blackoutTimer < blackoutTime)
+			{
+				blackoutTimer += Time.deltaTime;
+			}
+			else
+			{
+				if(!almostDark)
+				{
+					almostDark = true;
+					m_Player.HUDText.Send("You're in the dark too long \n Lite the candle soon");
+					voiceScript.motherVoiceSegmentSingle = "Too Dark 1";
+					voiceScript.PlayMotherVoiceSingle();
+				}
+			}
+
 		}
 		else
 		{
 			if(startedToBlackout)
 			{
+				almostDark = false;
+				blackoutTimer = 0;
 				startedToBlackout = false;
 				candleOnVoice = false;
 				iTween.Stop(gameObject);
